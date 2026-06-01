@@ -1,0 +1,27 @@
+export function Testimonials() {
+  const quotes = [
+    {
+      quote: 'They delivered every milestone with proactive coordination and outstanding technical quality.',
+      author: 'Sarah Liu, Operations Director',
+    },
+    {
+      quote: 'The team helped us move from concept to construction-ready engineering faster than expected.',
+      author: 'Mark Allen, Facilities Manager',
+    },
+  ];
+
+  return (
+    <section className="mx-auto max-w-6xl">
+      <div className="rounded-3xl border border-border bg-surface p-8 shadow-sm">
+        <div className="grid gap-6 md:grid-cols-2">
+          {quotes.map((item) => (
+            <blockquote key={item.author} className="rounded-3xl border border-border bg-white p-8 shadow-sm">
+              <p className="text-xl font-semibold text-slate-900">“{item.quote}”</p>
+              <footer className="mt-6 text-sm text-slate-600">{item.author}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
