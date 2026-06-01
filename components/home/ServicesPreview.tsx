@@ -1,111 +1,179 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  DraftingCompass,
+  Layers3,
+  Ruler,
+  ShieldCheck,
+} from 'lucide-react';
+
+const services = [
+  {
+    title: 'Civil Engineering',
+    desc: 'Roads, drainage, utilities, and site works designed for practical construction and long-term resilience.',
+    bullets: ['Infrastructure planning', 'Earthworks & drainage', 'Site supervision'],
+    href: '/services#civil',
+    icon: DraftingCompass,
+    accent: 'bg-sky-500',
+  },
+  {
+    title: 'Structural Engineering',
+    desc: 'Optimised concrete and steel systems balancing safety, performance, buildability, and cost.',
+    bullets: ['Concrete & steel design', 'Seismic checks', 'Retrofit solutions'],
+    href: '/services#structural',
+    icon: Building2,
+    accent: 'bg-indigo-500',
+  },
+  {
+    title: 'Auxiliary Services',
+    desc: 'Testing, surveys, inspections, and independent technical advisory that keep delivery decisions grounded.',
+    bullets: ['Geotechnical testing', 'Material inspection', 'Forensic review'],
+    href: '/services#auxiliary',
+    icon: ShieldCheck,
+    accent: 'bg-emerald-500',
+  },
+];
+
+const process = [
+  { label: 'Scope', icon: Ruler },
+  { label: 'Design', icon: Layers3 },
+  { label: 'Verify', icon: BadgeCheck },
+];
 
 export function ServicesPreview() {
-  const services = [
-    {
-      title: 'Civil Engineering',
-      desc: 'Roads, drainage and site works built for longevity and resilience.',
-      bullets: ['Infrastructure planning', 'Earthworks & drainage', 'Site supervision'],
-      bgFrom: 'rgba(14, 165, 233, 1)',
-      bgTo: 'rgba(37, 99, 235, 1)',
-      href: '/services#civil',
-    },
-    {
-      title: 'Structural Engineering',
-      desc: 'Optimised structural systems balancing performance and cost.',
-      bullets: ['Concrete & steel design', 'Seismic checks', 'Retrofit solutions'],
-      bgFrom: 'rgba(124, 58, 237, 1)',
-      bgTo: 'rgba(79, 70, 229, 1)',
-      href: '/services#structural',
-    },
-    {
-      title: 'Auxiliary Services',
-      desc: 'Site testing, surveys and independent technical advisory.',
-      bullets: ['Geotechnical testing', 'Material inspection', 'Forensic review'],
-      bgFrom: 'rgba(20, 184, 166, 1)',
-      bgTo: 'rgba(6, 95, 70, 1)',
-      href: '/services#auxiliary',
-    },
-  ];
-
   return (
-    <section className="mx-auto max-w-6xl px-4">
-      <div className="rounded-3xl bg-gradient-to-b from-white/60 to-white/40 p-8 shadow-lg border border-border">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm uppercase tracking-widest text-brand-500">Services</p>
-          <h2 className="mt-3 text-3xl font-extrabold text-slate-900">End-to-end engineering, executed with excellence</h2>
-          <p className="mt-3 text-sm text-slate-600">From feasibility to handover — practical designs, clear reporting, and measurable outcomes.</p>
-        </div>
+    <section className="mx-auto max-w-6xl">
+      <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+        <div className="lg:sticky lg:top-28">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.45 }}
+            className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
+          >
+            Services
+          </motion.p>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <Link
-              key={s.title}
-              href={s.href}
-              className="group relative block overflow-hidden rounded-2xl shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <div
-                className="absolute inset-0"
-                style={{ background: `linear-gradient(180deg, ${s.bgFrom}, ${s.bgTo})` }}
-                aria-hidden
-              />
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" aria-hidden />
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.08 }}
+            className="mt-4 max-w-xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
+          >
+            Engineering services that move cleanly from brief to build.
+          </motion.h2>
 
-              <div className="relative z-10 flex min-h-[220px] flex-col justify-between p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/80 text-brand-700 shadow-md">
-                    {s.title.includes('Civil') && (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 18h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M4 18V11l4-2 4 2 4-2 4 2v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.16 }}
+            className="mt-5 max-w-lg text-sm leading-7 text-slate-600 sm:text-base"
+          >
+            From feasibility to handover, we combine technical design,
+            coordination, review, and site support so engineering decisions stay
+            visible and useful.
+          </motion.p>
 
-                    {s.title.includes('Structural') && (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 3v18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M3 7h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.24 }}
+            className="mt-7 rounded-3xl border border-border bg-slate-950 p-5 text-white shadow-xl shadow-slate-950/10"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+              Delivery rhythm
+            </p>
+            <div className="mt-4 grid grid-cols-3 gap-2">
+              {process.map((item) => {
+                const Icon = item.icon;
 
-                    {s.title.includes('Auxiliary') && (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.5 9.5l6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M10.5 13.5l-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
+                return (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-white/10 bg-white/[0.07] p-3 text-center"
+                  >
+                    <Icon className="mx-auto h-5 w-5 text-brand-100" />
+                    <p className="mt-2 text-xs font-semibold text-slate-200">
+                      {item.label}
+                    </p>
                   </div>
+                );
+              })}
+            </div>
+          </motion.div>
 
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-white drop-shadow">{s.title}</h3>
-                    <p className="mt-1 text-sm text-white/90">{s.desc}</p>
-                  </div>
-                </div>
-
-                <div className="mt-4 flex items-center justify-between">
-                  <ul className="flex flex-col gap-1">
-                    {s.bullets.map((b) => (
-                      <li key={b} className="text-xs text-white/90">• {b}</li>
-                    ))}
-                  </ul>
-
-                  <div className="ml-4 flex flex-col items-end">
-                    <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800">Trusted</span>
-                    <span className="mt-2 inline-flex items-center rounded-md bg-white/10 px-3 py-1 text-xs font-medium text-white/90 opacity-90 group-hover:bg-white/20">Explore →</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-8 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_-20px_rgba(15,23,42,0.45)] ring-1 ring-white/10 transition hover:bg-slate-800"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition hover:-translate-y-0.5 hover:bg-brand-700"
           >
             See all services
+            <ArrowRight className="h-4 w-4" />
           </Link>
+        </div>
+
+        <div className="grid gap-4">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+
+            return (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="group overflow-hidden rounded-3xl border border-border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <Link href={service.href} className="grid gap-0 sm:grid-cols-[150px_1fr]">
+                  <div className="relative min-h-[150px] bg-slate-950 p-5 text-white sm:min-h-full">
+                    <div className={`absolute inset-x-0 top-0 h-1 ${service.accent}`} />
+                    <div className="flex h-full flex-col justify-between">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15">
+                        <Icon className="h-7 w-7" />
+                      </div>
+                      <p className="mt-8 text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+                        0{index + 1}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-5 sm:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-2xl font-extrabold leading-tight text-slate-950">
+                          {service.title}
+                        </h3>
+                        <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">
+                          {service.desc}
+                        </p>
+                      </div>
+                      <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-slate-300 transition group-hover:translate-x-1 group-hover:text-brand-500" />
+                    </div>
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {service.bullets.map((bullet) => (
+                        <span
+                          key={bullet}
+                          className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-slate-600"
+                        >
+                          {bullet}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

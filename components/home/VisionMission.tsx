@@ -1,41 +1,161 @@
-﻿'use client';
+'use client';
+
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Compass, Lightbulb, Target, Workflow } from 'lucide-react';
+
+const pillars = [
+  {
+    title: 'Vision',
+    description:
+      'To be the trusted engineering partner behind smarter, safer, and more sustainable communities.',
+    icon: Lightbulb,
+  },
+  {
+    title: 'Mission',
+    description:
+      'Deliver integrated civil, structural, and infrastructure solutions with precision and long-term value.',
+    icon: Target,
+  },
+  {
+    title: 'Approach',
+    description:
+      'Blend technical excellence, collaboration, and digital workflows so teams can move with clarity.',
+    icon: Workflow,
+  },
+];
 
 export function VisionMission() {
-  const pillars = [
-    {
-      title: 'Our vision',
-      description: 'To be the trusted partner for ambitious engineering programs that shape smarter, more sustainable communities.',
-    },
-    {
-      title: 'Our mission',
-      description: 'Deliver integrated infrastructure, structural, and civil engineering solutions with precision, clarity, and long-term value.',
-    },
-    {
-      title: 'Our approach',
-      description: 'Combine technical excellence, collaborative delivery, and digital workflows to keep projects on time and aligned with client goals.',
-    },
-  ];
-
   return (
     <section className="mx-auto max-w-6xl">
-      <div className="rounded-3xl border border-border bg-surface p-8 shadow-sm">
-        <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.24em] text-brand-500">Vision & Mission</p>
-          <h2 className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl">Engineering leadership for projects that matter.</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-slate-600">We empower teams with forward-thinking engineering strategy, resilient design, and practical execution plans that improve performance, usability, and long-term asset value.</p>
+      <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="p-6 sm:p-8 lg:p-10">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45 }}
+              className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
+            >
+              Vision & Mission
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
+            >
+              Engineering leadership shaped around clarity, durability, and trust.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base"
+            >
+              We turn ambitious project requirements into practical engineering
+              decisions, coordinated documentation, and delivery paths that
+              teams can stand behind.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              className="mt-8 grid gap-3 sm:grid-cols-3"
+            >
+              {['Plan clearly', 'Design precisely', 'Deliver responsibly'].map(
+                (item, index) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-border bg-surface p-4"
+                  >
+                    <p className="text-xs font-bold text-brand-500">0{index + 1}</p>
+                    <p className="mt-2 text-sm font-semibold text-slate-900">
+                      {item}
+                    </p>
+                  </div>
+                ),
+              )}
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="relative min-h-[360px] overflow-hidden bg-slate-950 p-6 text-white sm:p-8 lg:min-h-full"
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(37,99,235,0.32),transparent_42%),radial-gradient(circle_at_80%_18%,rgba(45,212,191,0.28),transparent_30%)]" />
+            <div className="absolute left-8 top-8 h-28 w-28 rounded-full border border-white/10" />
+            <div className="absolute bottom-8 right-8 h-44 w-44 rounded-full border border-white/10" />
+
+            <div className="relative flex h-full flex-col justify-between gap-8">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-brand-100 ring-1 ring-white/15">
+                <Compass className="h-7 w-7" />
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+                  North star
+                </p>
+                <h3 className="mt-3 max-w-sm text-3xl font-extrabold leading-tight">
+                  Better decisions before better drawings.
+                </h3>
+                <p className="mt-4 max-w-sm text-sm leading-6 text-slate-300">
+                  The best engineering outcomes start with clear assumptions,
+                  visible risks, and coordinated priorities.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between rounded-3xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
+                <div>
+                  <p className="text-3xl font-extrabold">360</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                    Project view
+                  </p>
+                </div>
+                <ArrowUpRight className="h-6 w-6 text-brand-100" />
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((item) => (
-            <div key={item.title} className="flex flex-col items-start gap-4 rounded-3xl border border-border bg-white p-6 shadow-sm">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
-                  <path d={item.title === 'Our vision' ? 'M12 2L2 7l10 5 10-5-10-5Zm0 7l-9-4.5V18l9 4.5L21 18V4.5L12 9Z' : item.title === 'Our mission' ? 'M6 3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v2h14V6a1 1 0 0 0-1-1H6Zm-1 5v6a1 1 0 0 0 1 1h2v-4H5V10Zm4 0v4h6v-4H9Zm8 0h-2v4h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1Z' : 'M12 1.5 8.5 5.5 4.5 6.5 4.5 12c0 4.7 3.8 8.5 8.5 8.5 4.7 0 8.5-3.8 8.5-8.5V6.5l-4-1-3.5-4Zm-.5 10.6-3-3 1.4-1.4 1.6 1.6 4.8-4.8 1.4 1.4-6.2 6.2Z'} /></svg>
-              </div>
-              <h3 className="text-lg font-semibold text-slate-900">{item.title.replace('Our ', '')}</h3>
-              <p className="text-sm text-slate-600">{item.description}</p>
-            </div>
-          ))}
+        <div className="grid border-t border-border bg-surface/70 sm:grid-cols-3">
+          {pillars.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.article
+                key={item.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="border-b border-border p-6 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-brand-700 shadow-sm ring-1 ring-border">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-extrabold text-slate-950">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>
