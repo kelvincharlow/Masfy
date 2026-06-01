@@ -9,7 +9,7 @@ import { CTA } from '@/components/home/CTA';
 
 export default function HomePage() {
   return (
-    <div className="space-y-28 px-6 lg:px-12">
+    <div className="space-y-16 px-4 sm:px-6 lg:px-12 md:space-y-24">
       <Hero />
       <ProjectsPreview />
       <VisionMission />
