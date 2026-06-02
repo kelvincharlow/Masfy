@@ -22,18 +22,12 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-0 lg:px-8">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 py-4" onClick={() => setMenuOpen(false)}>
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-500">
-            <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M2 20h20" />
-              <path d="M4 20V10l8-6 8 6v10" />
-              <path d="M10 20v-5h4v5" />
-            </svg>
-          </div>
-          <div>
-            <span className="block text-[15px] font-bold leading-tight text-slate-900">Masfy Consultants</span>
-            <span className="block text-[10px] uppercase tracking-[0.26em] text-brand-500">Engineering strategy & delivery</span>
-          </div>
+        <Link href="/" className="flex items-center py-3" onClick={() => setMenuOpen(false)}>
+          <img
+            src="/logo.png"
+            alt="MASFY Consulting Engineers"
+            className="h-12 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}

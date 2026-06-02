@@ -2,55 +2,42 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Building2, Gauge, MapPinned, Route, Zap } from 'lucide-react';
+import { ArrowUpRight, Building2, Hotel, MapPinned, Warehouse } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Manufacturing Plant Expansion',
-    category: 'Industrial',
-    detail: 'Process, utility and delivery engineering for a high-capacity facility.',
-    metric: '32 MW',
-    metricLabel: 'Capacity',
-    image:
-      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80',
+    title: 'Jubilee Insurance HQ',
+    category: 'Commercial',
+    detail: 'Commercial headquarters project in Nairobi, Kenya.',
+    image: '/projects/Jubilee Isurance.jpg',
     href: '/projects',
     icon: Building2,
-    accent: 'from-amber-400 to-orange-600',
-    location: 'Integrated process works',
+    location: 'Nairobi, Kenya',
   },
   {
-    title: 'Renewable Power Campus',
-    category: 'Energy',
-    detail: 'Energy systems, controls integration and sustainability planning.',
-    metric: '65 MW',
-    metricLabel: 'Output',
-    image:
-      'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80',
+    title: 'Ritz Carlton Maasai Mara Safari',
+    category: 'Hospitality',
+    detail: 'Luxury hospitality project set within the Maasai Mara.',
+    image: '/projects/Ritz Carlton.jpeg',
     href: '/projects',
-    icon: Zap,
-    accent: 'from-emerald-400 to-teal-700',
-    location: 'Utility-scale generation',
+    icon: Hotel,
+    location: 'Maasai Mara',
   },
   {
-    title: 'Urban Mobility Infrastructure',
-    category: 'Transport',
-    detail:
-      'Traffic, civil engineering and infrastructure coordination for mobility hubs.',
-    metric: '12 km',
-    metricLabel: 'Network',
-    image:
-      'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80',
+    title: 'Cresent Pearl',
+    category: 'Apartments',
+    detail: 'Residential apartment development in Westlands, Nairobi.',
+    image: '/projects/Crescent Pearl.JPG',
     href: '/projects',
-    icon: Route,
-    accent: 'from-sky-400 to-blue-700',
-    location: 'City access corridor',
+    icon: Warehouse,
+    location: 'Westlands, Nairobi',
   },
 ];
 
 const stats = [
-  { value: '3', label: 'Featured sectors' },
-  { value: '100+', label: 'Coordinated packages' },
-  { value: '0', label: 'Loose handovers' },
+  { value: '3', label: 'Featured projects' },
+  { value: '3', label: 'Project sectors' },
+  { value: 'KE', label: 'Project locations' },
 ];
 
 export function ProjectsPreview() {
@@ -78,7 +65,7 @@ export function ProjectsPreview() {
             transition={{ duration: 0.5, delay: 0.08 }}
             className="mt-3 max-w-xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
           >
-            Built work with measurable engineering outcomes.
+            Selected projects across commercial, hospitality, and residential work.
           </motion.h2>
 
           <motion.p
@@ -88,8 +75,9 @@ export function ProjectsPreview() {
             transition={{ duration: 0.5, delay: 0.14 }}
             className="mt-4 max-w-lg text-sm leading-7 text-slate-600 sm:text-base"
           >
-            A closer look at projects where planning, technical design and
-            delivery coordination had to work together from day one.
+            A quick preview of real Masfy project work. Each project will later
+            open into a detailed case study with the scope, services, and
+            additional information you provide.
           </motion.p>
 
           <motion.div
@@ -117,7 +105,6 @@ export function ProjectsPreview() {
           transition={{ duration: 0.6, delay: 0.12 }}
           className="relative min-h-[440px]"
         >
-          <div className="absolute left-5 right-5 top-7 h-[calc(100%-2rem)] rounded-[2rem] bg-slate-950" />
           <Link
             href={featured.href}
             className="group absolute inset-x-0 top-0 block overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-950/20"
@@ -152,11 +139,13 @@ export function ProjectsPreview() {
                   </div>
 
                   <div className="flex shrink-0 items-center gap-3 rounded-2xl border border-white/15 bg-white/10 p-3 text-white backdrop-blur-md">
-                    <Gauge className="h-5 w-5 text-brand-100" />
+                    <MapPinned className="h-5 w-5 text-brand-100" />
                     <div>
-                      <p className="text-2xl font-extrabold leading-none">{featured.metric}</p>
+                      <p className="text-sm font-extrabold leading-none">
+                        {featured.location}
+                      </p>
                       <p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-slate-300">
-                        {featured.metricLabel}
+                        Location
                       </p>
                     </div>
                   </div>
@@ -195,7 +184,6 @@ export function ProjectsPreview() {
                     alt={project.title}
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   />
-                  <div className={`absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t ${project.accent} opacity-70`} />
                 </div>
 
                 <div className="flex min-h-[220px] flex-col justify-between p-5">
@@ -219,10 +207,10 @@ export function ProjectsPreview() {
                   <div className="mt-6 flex items-end justify-between border-t border-border pt-4">
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">
-                        {project.metricLabel}
+                        Location
                       </p>
-                      <p className="mt-1 text-2xl font-extrabold text-brand-500">
-                        {project.metric}
+                      <p className="mt-1 text-sm font-extrabold text-brand-500">
+                        {project.location}
                       </p>
                     </div>
                     <span className="text-sm font-semibold text-slate-900">
