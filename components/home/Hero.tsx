@@ -17,28 +17,22 @@ import { useCallback, useEffect, useState } from 'react';
 
 const slides = [
   {
-    image: '/hero.png',
-    label: 'Structural Engineering',
-    title: 'Resilient structural systems',
-    note: 'Concept, analysis, detailing, and site coordination.',
+    image: '/projects/Jubilee Isurance.jpg',
+    label: 'Commercial',
+    title: 'Jubilee Insurance HQ',
+    note: 'Commercial headquarters project in Nairobi, Kenya.',
   },
   {
-    image: '/hero1.jpg',
-    label: 'Civil Infrastructure',
-    title: 'Civil works built for real conditions',
-    note: 'Roads, drainage, earthworks, utilities, and supervision.',
+    image: '/projects/Ritz Carlton.jpeg',
+    label: 'Hospitality',
+    title: 'Ritz Carlton Maasai Mara Safari',
+    note: 'Luxury hospitality project set within the Maasai Mara.',
   },
   {
-    image: '/hero2.png',
-    label: 'BIM & Digital Delivery',
-    title: 'Coordinated digital delivery',
-    note: 'Model-led reviews that reduce clashes and rework.',
-  },
-  {
-    image: '/hero3.jpg',
-    label: 'Industrial Projects',
-    title: 'Industrial delivery without guesswork',
-    note: 'Integrated engineering support for complex facilities.',
+    image: '/projects/Crescent Pearl.JPG',
+    label: 'Apartments',
+    title: 'Cresent Pearl',
+    note: 'Residential apartment development in Westlands, Nairobi.',
   },
 ];
 
