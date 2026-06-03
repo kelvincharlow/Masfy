@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/about', label: 'About us' },
   { href: '/services', label: 'Services' },
   { href: '/projects', label: 'Projects' },
-  { href: '/industries', label: 'Industries' },
+  { href: '/careers', label: 'Careers' },
   { href: '/insights', label: 'Insights' },
 ];
 
@@ -22,12 +22,20 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-0 lg:px-8">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center py-3" onClick={() => setMenuOpen(false)}>
+        <Link href="/" className="flex items-center gap-3 py-3" onClick={() => setMenuOpen(false)}>
           <img
-            src="/logo.png"
+            src="/masfy-icon.svg"
             alt="MASFY Consulting Engineers"
-            className="h-12 w-auto object-contain"
+            className="h-10 w-auto object-contain"
           />
+          <span className="flex flex-col">
+            <span className="text-sm font-extrabold leading-none text-slate-950 sm:text-base">
+              Masfy Consultants
+            </span>
+            <span className="mt-1 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-500 sm:block">
+              Your gateway to engineering excellence
+            </span>
+          </span>
         </Link>
 
         {/* Desktop nav */}

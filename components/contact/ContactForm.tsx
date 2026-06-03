@@ -101,7 +101,7 @@ export function ContactForm() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08 }}
-          className="mt-3 text-4xl font-semibold text-slate-900"
+          className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl"
         >
           Let&apos;s work together
         </motion.h1>
@@ -122,7 +122,7 @@ export function ContactForm() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="rounded-3xl border border-border bg-surface p-8 shadow-sm"
+          className="rounded-3xl border border-border bg-surface p-5 shadow-sm sm:p-8"
         >
           {status === "success" ? (
             <div className="flex h-full flex-col items-center justify-center gap-4 py-16 text-center">
@@ -238,9 +238,8 @@ export function ContactForm() {
                 <motion.button
                   type="submit"
                   disabled={status === "loading"}
-                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:opacity-70"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 px-7 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:opacity-70"
                 >
                   {status === "loading" ? (
                     <>

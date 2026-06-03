@@ -83,13 +83,13 @@ export function ProjectsExplorer() {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
               Projects
             </p>
-            <h1 className="mt-4 max-w-2xl text-4xl font-extrabold leading-tight text-slate-950 sm:text-5xl">
+            <h1 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-5xl">
               Real project work across Kenya&apos;s built environment.
             </h1>
           </div>
@@ -124,7 +124,7 @@ export function ProjectsExplorer() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: index * 0.06 }}
-              className="group overflow-hidden rounded-3xl border border-border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              className="group overflow-hidden rounded-3xl border border-border bg-white shadow-sm transition hover:shadow-xl md:hover:-translate-y-1"
             >
               <button
                 type="button"
@@ -135,7 +135,7 @@ export function ProjectsExplorer() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover transition duration-700 md:group-hover:scale-105"
                   />
                   <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-900 backdrop-blur">
                     {project.industry}
@@ -173,7 +173,7 @@ export function ProjectsExplorer() {
               transition={{ duration: 0.25 }}
               className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl"
             >
-              <div className="relative h-[320px] overflow-hidden sm:h-[420px]">
+              <div className="relative h-[280px] overflow-hidden sm:h-[420px]">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}

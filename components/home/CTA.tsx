@@ -9,7 +9,7 @@ const steps = [
 
 export function CTA() {
   return (
-    <section className="mx-auto max-w-6xl">
+    <section className="mx-auto max-w-6xl pb-12 md:pb-16">
       <div className="relative overflow-hidden rounded-[2rem] bg-brand-500 px-6 py-8 text-white shadow-2xl shadow-brand-500/20 sm:px-8 lg:px-10">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,23,42,0.32),transparent_48%),radial-gradient(circle_at_88%_18%,rgba(255,255,255,0.22),transparent_28%)]" />
         <div className="absolute -bottom-20 -left-20 h-56 w-56 rounded-full border border-white/15" />
@@ -31,14 +31,14 @@ export function CTA() {
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-brand-700 shadow-lg shadow-slate-950/10 transition hover:-translate-y-0.5 hover:bg-slate-100"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-brand-700 shadow-lg shadow-slate-950/10 transition hover:bg-slate-100 md:hover:-translate-y-0.5"
               >
                 Contact us
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20 md:hover:-translate-y-0.5"
               >
                 View project work
               </Link>

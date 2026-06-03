@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Building2, Hotel, MapPinned, Warehouse } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Building2, Hotel, MapPinned, Warehouse } from 'lucide-react';
 
 const projects = [
   {
@@ -34,194 +34,99 @@ const projects = [
   },
 ];
 
-const stats = [
-  { value: '3', label: 'Featured projects' },
-  { value: '3', label: 'Project sectors' },
-  { value: 'KE', label: 'Project locations' },
-];
-
 export function ProjectsPreview() {
-  const [featured, ...rest] = projects;
-  const FeaturedIcon = featured.icon;
-
   return (
     <section className="mx-auto max-w-6xl">
-      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.25fr] lg:items-end">
-        <div className="lg:pb-8">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.45 }}
-            className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
-          >
-            Projects
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="mt-3 max-w-xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
-          >
-            Selected projects across commercial, hospitality, and residential work.
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.14 }}
-            className="mt-4 max-w-lg text-sm leading-7 text-slate-600 sm:text-base"
-          >
-            A quick preview of real Masfy project work. Each project will later
-            open into a detailed case study with the scope, services, and
-            additional information you provide.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-6 grid max-w-xl grid-cols-3 overflow-hidden rounded-2xl border border-border bg-white shadow-sm"
-          >
-            {stats.map((stat) => (
-              <div key={stat.label} className="border-r border-border p-4 last:border-r-0">
-                <p className="text-2xl font-extrabold text-slate-950">{stat.value}</p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-slate-500">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6, delay: 0.12 }}
-          className="relative min-h-[440px]"
-        >
-          <Link
-            href={featured.href}
-            className="group absolute inset-x-0 top-0 block overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl shadow-slate-950/20"
-          >
-            <div className="relative h-[360px] overflow-hidden sm:h-[420px]">
-              <img
-                src={featured.image}
-                alt={featured.title}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
-                    <FeaturedIcon className="h-3.5 w-3.5" />
-                    {featured.category}
-                  </span>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/85 backdrop-blur-md">
-                    <MapPinned className="h-3.5 w-3.5" />
-                    {featured.location}
-                  </span>
-                </div>
-
-                <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <h3 className="max-w-md text-2xl font-extrabold leading-tight text-white sm:text-3xl">
-                      {featured.title}
-                    </h3>
-                    <p className="mt-3 max-w-md text-sm leading-6 text-slate-200">
-                      {featured.detail}
-                    </p>
-                  </div>
-
-                  <div className="flex shrink-0 items-center gap-3 rounded-2xl border border-white/15 bg-white/10 p-3 text-white backdrop-blur-md">
-                    <MapPinned className="h-5 w-5 text-brand-100" />
-                    <div>
-                      <p className="text-sm font-extrabold leading-none">
-                        {featured.location}
-                      </p>
-                      <p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-slate-300">
-                        Location
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Link>
+      <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
+        <div className="flex flex-col gap-5 p-6 sm:p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45 }}
+              className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
+            >
+              Projects
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
+            >
+              Featured project work.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.14 }}
+              className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base"
+            >
+              A selection of Masfy projects across commercial, hospitality and
+              residential developments.
+            </motion.p>
+          </div>
 
           <Link
             href="/projects"
-            className="group absolute bottom-0 right-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand-500 text-white shadow-xl shadow-brand-500/30 transition hover:-translate-y-1 hover:bg-brand-700 sm:right-8"
-            aria-label="View all projects"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-700 md:hover:-translate-y-0.5"
           >
-            <ArrowUpRight className="h-6 w-6 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            View all projects
+            <ArrowRight className="h-4 w-4" />
           </Link>
-        </motion.div>
-      </div>
+        </div>
 
-      <div className="mt-8 grid gap-4 lg:grid-cols-2">
-        {rest.map((project, index) => {
-          const ProjectIcon = project.icon;
+        <div className="grid border-t border-border bg-surface/70 lg:grid-cols-3">
+          {projects.map((project, index) => {
+            const ProjectIcon = project.icon;
 
-          return (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.12 + index * 0.08 }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-            >
-              <Link href={project.href} className="grid h-full sm:grid-cols-[180px_1fr]">
-                <div className="relative min-h-[190px] overflow-hidden sm:min-h-full">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                  />
-                </div>
+            return (
+              <motion.article
+                key={project.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="group border-b border-border bg-white last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0"
+              >
+                <Link href={project.href} className="block h-full">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover transition duration-700 md:group-hover:scale-105"
+                    />
+                    <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-800">
+                      <ProjectIcon className="h-3.5 w-3.5 text-brand-500" />
+                      {project.category}
+                    </div>
+                  </div>
 
-                <div className="flex min-h-[220px] flex-col justify-between p-5">
-                  <div>
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
-                        <ProjectIcon className="h-3.5 w-3.5 text-brand-500" />
-                        {project.category}
-                      </span>
-                      <ArrowUpRight className="h-5 w-5 text-slate-300 transition group-hover:text-brand-500" />
+                  <div className="p-5 sm:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-xl font-extrabold leading-tight text-slate-950">
+                        {project.title}
+                      </h3>
+                      <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-slate-300 transition group-hover:text-brand-500" />
                     </div>
 
-                    <h3 className="mt-5 text-xl font-extrabold leading-tight text-slate-950">
-                      {project.title}
-                    </h3>
                     <p className="mt-3 text-sm leading-6 text-slate-600">
                       {project.detail}
                     </p>
-                  </div>
 
-                  <div className="mt-6 flex items-end justify-between border-t border-border pt-4">
-                    <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">
-                        Location
-                      </p>
-                      <p className="mt-1 text-sm font-extrabold text-brand-500">
-                        {project.location}
-                      </p>
+                    <div className="mt-5 flex items-center gap-2 border-t border-border pt-4 text-sm font-semibold text-brand-500">
+                      <MapPinned className="h-4 w-4" />
+                      {project.location}
                     </div>
-                    <span className="text-sm font-semibold text-slate-900">
-                      View case study
-                    </span>
                   </div>
-                </div>
-              </Link>
-            </motion.article>
-          );
-        })}
+                </Link>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
