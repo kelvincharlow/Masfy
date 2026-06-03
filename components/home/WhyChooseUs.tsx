@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { BadgeCheck, Cpu, ShieldCheck, Users } from 'lucide-react';
 
 const points = [
@@ -32,34 +31,16 @@ export function WhyChooseUs() {
       <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
         <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.82fr_1.18fr] lg:p-10">
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45 }}
-              className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
-            >
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
               Why choose us
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
-              className="mt-3 max-w-xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
-            >
+            </p>
+            <h2 className="mt-3 max-w-xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl">
               Practical engineering confidence before construction starts.
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.16 }}
-              className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base"
-            >
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
               We help teams reduce ambiguity, coordinate decisions and move
               forward with designs that are buildable, reviewed and practical.
-            </motion.p>
+            </p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
@@ -67,12 +48,8 @@ export function WhyChooseUs() {
               const Icon = item.icon;
 
               return (
-                <motion.article
+                <article
                   key={item.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.5, delay: index * 0.06 }}
                   className="rounded-3xl border border-border bg-surface p-5"
                 >
                   <div className="flex items-start gap-4">
@@ -91,7 +68,7 @@ export function WhyChooseUs() {
                       </p>
                     </div>
                   </div>
-                </motion.article>
+                </article>
               );
             })}
           </div>

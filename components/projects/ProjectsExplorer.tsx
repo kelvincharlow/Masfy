@@ -118,12 +118,9 @@ export function ProjectsExplorer() {
         </div>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <motion.article
+          {filteredProjects.map((project) => (
+            <article
               key={project.title}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: index * 0.06 }}
               className="group overflow-hidden rounded-3xl border border-border bg-white shadow-sm transition hover:shadow-xl md:hover:-translate-y-1"
             >
               <button
@@ -158,7 +155,7 @@ export function ProjectsExplorer() {
                   </p>
                 </div>
               </button>
-            </motion.article>
+            </article>
           ))}
         </div>
       </section>

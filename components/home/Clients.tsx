@@ -57,34 +57,16 @@ export function Clients() {
       <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
         <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45 }}
-              className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
-            >
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
               Client Success & Partners
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
-              className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
-            >
+            </p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl">
               Trusted engineering support for ambitious project teams.
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.16 }}
-              className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base"
-            >
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
               Masfy works with developers, contractors and institutions that
               need clear technical direction and dependable engineering delivery.
-            </motion.p>
+            </p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3 lg:self-end">

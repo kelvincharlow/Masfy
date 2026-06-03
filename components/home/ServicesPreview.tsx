@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowRight, Building2, DraftingCompass, ShieldCheck } from 'lucide-react';
 
 const services = [
@@ -31,34 +30,16 @@ export function ServicesPreview() {
       <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
         <div className="flex flex-col gap-5 p-6 sm:p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45 }}
-              className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
-            >
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
               Services
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
-              className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
-            >
+            </p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl">
               Engineering services from concept to delivery.
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.16 }}
-              className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base"
-            >
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
               A focused preview of Masfy&apos;s civil, structural and auxiliary
               engineering capabilities.
-            </motion.p>
+            </p>
           </div>
 
           <Link
@@ -75,12 +56,8 @@ export function ServicesPreview() {
             const Icon = service.icon;
 
             return (
-              <motion.article
+              <article
                 key={service.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="border-b border-border p-6 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
               >
                 <Link href={service.href} className="group flex items-start gap-4">
@@ -99,7 +76,7 @@ export function ServicesPreview() {
                     </p>
                   </div>
                 </Link>
-              </motion.article>
+              </article>
             );
           })}
         </div>

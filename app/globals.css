@@ -40,11 +40,12 @@ body {
     display: block;
   }
 
-  article,
-  img,
-  .group {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  .transition,
+  .transition-all,
+  .transition-colors,
+  .transition-transform {
+    transition-duration: 0ms !important;
+    transition-property: none !important;
   }
 }
 

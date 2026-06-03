@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Lightbulb, Target, Workflow } from 'lucide-react';
 
 const pillars = [
@@ -29,45 +28,21 @@ export function VisionMission() {
     <section className="mx-auto max-w-6xl">
       <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
         <div className="p-6 sm:p-8 lg:p-10">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.45 }}
-            className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500"
-          >
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
             Vision & Mission
-          </motion.p>
+          </p>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.55, delay: 0.08 }}
-            className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl"
-          >
+          <h2 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl">
             Engineering leadership shaped around clarity, durability, and trust.
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.55, delay: 0.16 }}
-            className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base"
-          >
+          <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
             We turn ambitious project requirements into practical engineering
             decisions, coordinated documentation, and delivery paths that teams
             can stand behind.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.55, delay: 0.24 }}
-            className="mt-8 grid gap-3 sm:grid-cols-3"
-          >
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {['Plan clearly', 'Design precisely', 'Deliver responsibly'].map(
               (item, index) => (
                 <div
@@ -81,20 +56,16 @@ export function VisionMission() {
                 </div>
               ),
             )}
-          </motion.div>
+          </div>
         </div>
 
         <div className="grid border-t border-border bg-surface/70 sm:grid-cols-3">
-          {pillars.map((item, index) => {
+          {pillars.map((item) => {
             const Icon = item.icon;
 
             return (
-              <motion.article
+              <article
                 key={item.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="border-b border-border p-6 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
               >
                 <div className="flex items-start gap-4">
@@ -110,7 +81,7 @@ export function VisionMission() {
                     </p>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             );
           })}
         </div>
