@@ -10,76 +10,25 @@ import {
   MapPinned,
   X,
 } from 'lucide-react';
+import type { Project } from '@/lib/projects';
 
-type Project = {
-  title: string;
-  industry: string;
-  location: string;
-  year: string;
-  image: string;
-  summary: string;
-  fullDescription: string;
-  services: string[];
-  challenges: string;
-  outcome: string;
-  gallery: string[];
+type ProjectsExplorerProps = {
+  projects: Project[];
 };
 
-const projects: Project[] = [
-  {
-    title: 'Jubilee Insurance HQ',
-    industry: 'Commercial',
-    location: 'Nairobi, Kenya',
-    year: 'To be specified',
-    image: '/projects/Jubilee Isurance.jpg',
-    summary: 'Commercial headquarters project in Nairobi, Kenya.',
-    fullDescription:
-      'A commercial headquarters project for Jubilee Insurance in Nairobi. Full project scope, delivery notes, and technical details can be added once the final project information is ready.',
-    services: ['Structural engineering', 'Civil engineering', 'Technical coordination'],
-    challenges: 'Detailed project challenges to be specified.',
-    outcome: 'Project outcome and delivery impact to be specified.',
-    gallery: ['/projects/Jubilee Isurance.jpg'],
-  },
-  {
-    title: 'Ritz Carlton Maasai Mara Safari',
-    industry: 'Hospitality',
-    location: 'Maasai Mara',
-    year: 'To be specified',
-    image: '/projects/Ritz Carlton.jpeg',
-    summary: 'Luxury hospitality project set within the Maasai Mara.',
-    fullDescription:
-      'A hospitality project connected to the Ritz Carlton Maasai Mara Safari development. Additional information can later describe the project scope, site requirements, services provided, and delivery outcome.',
-    services: ['Structural engineering', 'Civil works support', 'Technical advisory'],
-    challenges: 'Detailed project challenges to be specified.',
-    outcome: 'Project outcome and delivery impact to be specified.',
-    gallery: ['/projects/Ritz Carlton.jpeg'],
-  },
-  {
-    title: 'Crescent Pearl',
-    industry: 'Apartments',
-    location: 'Westlands, Nairobi',
-    year: 'To be specified',
-    image: '/projects/Crescent Pearl.JPG',
-    summary: 'Residential apartment development in Westlands, Nairobi.',
-    fullDescription:
-      'A residential apartment development in Westlands, Nairobi. More project details can later cover the design scope, services provided, challenges, and final outcomes.',
-    services: ['Structural engineering', 'Civil engineering', 'Design coordination'],
-    challenges: 'Detailed project challenges to be specified.',
-    outcome: 'Project outcome and delivery impact to be specified.',
-    gallery: ['/projects/Crescent Pearl.JPG'],
-  },
-];
-
-const categories = ['All', ...Array.from(new Set(projects.map((project) => project.industry)))];
-
-export function ProjectsExplorer() {
+export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const categories = useMemo(
+    () => ['All', ...Array.from(new Set(projects.map((project) => project.industry)))],
+    [projects],
+  );
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === 'All') return projects;
     return projects.filter((project) => project.industry === activeCategory);
-  }, [activeCategory]);
+  }, [activeCategory, projects]);
 
   return (
     <>

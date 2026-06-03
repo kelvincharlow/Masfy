@@ -1,39 +1,21 @@
-'use client';
-
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Building2, Hotel, MapPinned, Warehouse } from 'lucide-react';
+import { getFeaturedProjects } from '@/lib/projects';
+import type { Project } from '@/lib/projects';
 
-const projects = [
-  {
-    title: 'Jubilee Insurance HQ',
-    category: 'Commercial',
-    detail: 'Commercial headquarters project in Nairobi, Kenya.',
-    image: '/projects/Jubilee Isurance.jpg',
-    href: '/projects',
-    icon: Building2,
-    location: 'Nairobi, Kenya',
-  },
-  {
-    title: 'Ritz Carlton Maasai Mara Safari',
-    category: 'Hospitality',
-    detail: 'Luxury hospitality project set within the Maasai Mara.',
-    image: '/projects/Ritz Carlton.jpeg',
-    href: '/projects',
-    icon: Hotel,
-    location: 'Maasai Mara',
-  },
-  {
-    title: 'Crescent Pearl',
-    category: 'Apartments',
-    detail: 'Residential apartment development in Westlands, Nairobi.',
-    image: '/projects/Crescent Pearl.JPG',
-    href: '/projects',
-    icon: Warehouse,
-    location: 'Westlands, Nairobi',
-  },
-];
+const projectIcons = {
+  Apartments: Warehouse,
+  Commercial: Building2,
+  Hospitality: Hotel,
+};
 
-export function ProjectsPreview() {
+function getProjectIcon(project: Project) {
+  return projectIcons[project.industry as keyof typeof projectIcons] || Building2;
+}
+
+export async function ProjectsPreview() {
+  const projects = await getFeaturedProjects(3);
+
   return (
     <section className="mx-auto max-w-6xl">
       <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
@@ -62,14 +44,14 @@ export function ProjectsPreview() {
 
         <div className="grid border-t border-border bg-surface/70 lg:grid-cols-3">
           {projects.map((project) => {
-            const ProjectIcon = project.icon;
+            const ProjectIcon = getProjectIcon(project);
 
             return (
               <article
                 key={project.title}
                 className="group border-b border-border bg-white last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0"
               >
-                <Link href={project.href} className="block h-full">
+                <Link href="/projects" className="block h-full">
                   <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                     <img
                       src={project.image}
@@ -80,7 +62,7 @@ export function ProjectsPreview() {
                     />
                     <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-800">
                       <ProjectIcon className="h-3.5 w-3.5 text-brand-500" />
-                      {project.category}
+                      {project.industry}
                     </div>
                   </div>
 
@@ -93,7 +75,7 @@ export function ProjectsPreview() {
                     </div>
 
                     <p className="mt-3 text-sm leading-6 text-slate-600">
-                      {project.detail}
+                      {project.summary}
                     </p>
 
                     <div className="mt-5 flex items-center gap-2 border-t border-border pt-4 text-sm font-semibold text-brand-500">

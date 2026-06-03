@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "studio": "sanity dev --port 3336",
+    "studio:deploy": "sanity deploy",
     "lint": "next lint"
   },
   "dependencies": {
@@ -18,7 +20,9 @@
     "next": "14.2.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-is": "^19.2.7",
     "sanity": "^3.99.0",
+    "styled-components": "^6.4.2",
     "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {

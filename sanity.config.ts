@@ -10,11 +10,21 @@ import insight from './sanity/schemas/insight';
 import career from './sanity/schemas/career';
 import siteSettings from './sanity/schemas/siteSettings';
 
+const projectId =
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
+  process.env.SANITY_PROJECT_ID ||
+  'usf5rrf9';
+
+const dataset =
+  process.env.NEXT_PUBLIC_SANITY_DATASET ||
+  process.env.SANITY_DATASET ||
+  'production';
+
 export default defineConfig({
   name: 'default',
-  title: 'Engineering Company CMS',
-  projectId: process.env.SANITY_PROJECT_ID || 'your_project_id',
-  dataset: process.env.SANITY_DATASET || 'production',
+  title: 'Masfy CMS',
+  projectId,
+  dataset,
   plugins: [deskTool(), visionTool()],
   schema: {
     types: [siteSettings, project, service, industry, testimonial, teamMember, insight, career],

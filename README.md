@@ -1,4 +1,4 @@
-# Engineering Company Website
+# Masfy Consulting Engineers Website
 
 A modern `Next.js` + `TypeScript` website scaffold for an engineering company.
 
@@ -8,7 +8,7 @@ A modern `Next.js` + `TypeScript` website scaffold for an engineering company.
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- Sanity CMS (schema scaffold)
+- Sanity CMS for projects, services, insights, careers and site content
 
 ## Setup
 
@@ -28,6 +28,37 @@ npm run dev
 
 - `SANITY_PROJECT_ID`
 - `SANITY_DATASET`
+
+For the website frontend, copy `.env.local.example` to `.env.local` and set:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+```
+
+4. Run the Sanity Studio locally:
+
+```bash
+npm run studio
+```
+
+The Project schema supports the fields used on the site:
+
+- project name
+- industry
+- location
+- year
+- short summary
+- full description
+- services provided
+- challenges
+- outcome
+- main project image
+- gallery images
+- homepage featured toggle
+- display order
+
+Until Sanity is configured and projects are published, the website falls back to the local project data and images in `public/projects`.
 
 ## Project structure
 
