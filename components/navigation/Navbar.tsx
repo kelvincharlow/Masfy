@@ -22,14 +22,16 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-0 lg:px-8">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 py-3" onClick={() => setMenuOpen(false)}>
-          <img
-            src="/masfy-icon.svg"
-            alt="MASFY Consulting Engineers"
-            className="h-10 w-auto object-contain"
-          />
+        <Link href="/" className="flex min-w-0 items-center gap-3 py-3" onClick={() => setMenuOpen(false)}>
+          <span className="relative h-14 w-16 shrink-0 overflow-hidden" aria-hidden="true">
+            <img
+              src="/Masfy Logo 2025_New_Version.png"
+              alt=""
+              className="absolute left-1/2 top-1/2 h-16 w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+            />
+          </span>
           <span className="flex flex-col">
-            <span className="text-sm font-extrabold leading-none text-slate-950 sm:text-base">
+            <span className="text-xs font-extrabold leading-tight text-slate-950 sm:text-base sm:leading-none">
               Masfy Consulting Engineers
             </span>
             <span className="mt-1 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-500 sm:block">
