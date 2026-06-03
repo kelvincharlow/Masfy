@@ -23,7 +23,7 @@ const projects = [
     location: 'Maasai Mara',
   },
   {
-    title: 'Cresent Pearl',
+    title: 'Crescent Pearl',
     category: 'Apartments',
     detail: 'Residential apartment development in Westlands, Nairobi.',
     image: '/projects/Crescent Pearl.JPG',

@@ -24,7 +24,7 @@ const slides = [
   {
     image: '/projects/Crescent Pearl.JPG',
     label: 'Apartments',
-    title: 'Cresent Pearl',
+    title: 'Crescent Pearl',
     note: 'Residential apartment development in Westlands, Nairobi.',
   },
 ];
@@ -52,7 +52,7 @@ export function Hero() {
 
   return (
     <section className="relative w-full">
-      <div className="relative min-h-[400px] overflow-hidden rounded-[1.5rem] bg-slate-950 shadow-2xl shadow-slate-950/20 sm:min-h-[440px] sm:rounded-[2rem] lg:min-h-[460px]">
+      <div className="relative min-h-[430px] overflow-hidden rounded-[1.5rem] bg-slate-950 shadow-2xl shadow-slate-950/20 sm:min-h-[470px] sm:rounded-[2rem] lg:min-h-[560px]">
         {slides.map((slide, index) => (
           <img
             key={slide.image}
@@ -70,7 +70,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/45 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-slate-950/75 to-transparent" />
 
-        <div className="relative flex min-h-[400px] flex-col justify-between gap-6 px-5 py-5 sm:min-h-[440px] sm:px-8 sm:py-7 lg:min-h-[460px] lg:px-12 lg:py-8">
+        <div className="relative flex min-h-[430px] flex-col justify-between gap-6 px-5 py-6 sm:min-h-[470px] sm:px-8 sm:py-7 lg:min-h-[560px] lg:px-12 lg:py-10">
           <div className="max-w-3xl py-2 lg:py-0">
             <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Your Gateway to Engineering Excellence.

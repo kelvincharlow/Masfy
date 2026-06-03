@@ -1,25 +1,25 @@
 'use client';
 
-import { Lightbulb, Target, Workflow } from 'lucide-react';
+import { Lightbulb, Target, Trophy } from 'lucide-react';
 
 const pillars = [
   {
     title: 'Vision',
     description:
-      'To be the trusted engineering partner behind smarter, safer, and more sustainable communities.',
+      'To be the engineering firm of choice for clients who desire a close relationship with, and the highest quality and service from, their civil and structural engineering consultant.',
     icon: Lightbulb,
   },
   {
     title: 'Mission',
     description:
-      'Deliver integrated civil, structural, and infrastructure solutions with precision and long-term value.',
+      'To provide high quality, personalized civil and structural engineering design services and to satisfy clients needs by leveraging highly skilled staff, strong relationships, and cost-effective solutions in an atmosphere that fosters collaboration and creativity.',
     icon: Target,
   },
   {
-    title: 'Approach',
+    title: 'Objectives',
     description:
-      'Blend technical excellence, collaboration, and digital workflows so teams can move with clarity.',
-    icon: Workflow,
+      'To combine all applicable problem solving skills in providing solutions that are functionally sound, economically feasible, and practical, while maintaining a commensurate standard of technical excellence.',
+    icon: Trophy,
   },
 ];
 
@@ -33,30 +33,14 @@ export function VisionMission() {
           </p>
 
           <h2 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl">
-            Engineering leadership shaped around clarity, durability, and trust.
+            These foundations guide our engineering approach.
           </h2>
 
           <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
-            We turn ambitious project requirements into practical engineering
-            decisions, coordinated documentation, and delivery paths that teams
-            can stand behind.
+            Masfy engineering is grounded in close client relationships,
+            technical excellence, practical solutions, and collaborative design
+            delivery.
           </p>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {['Plan clearly', 'Design precisely', 'Deliver responsibly'].map(
-              (item, index) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-border bg-surface p-4"
-                >
-                  <p className="text-xs font-bold text-brand-500">0{index + 1}</p>
-                  <p className="mt-2 text-sm font-semibold text-slate-900">
-                    {item}
-                  </p>
-                </div>
-              ),
-            )}
-          </div>
         </div>
 
         <div className="grid border-t border-border bg-surface/70 sm:grid-cols-3">

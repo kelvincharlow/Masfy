@@ -55,7 +55,7 @@ const projects: Project[] = [
     gallery: ['/projects/Ritz Carlton.jpeg'],
   },
   {
-    title: 'Cresent Pearl',
+    title: 'Crescent Pearl',
     industry: 'Apartments',
     location: 'Westlands, Nairobi',
     year: 'To be specified',

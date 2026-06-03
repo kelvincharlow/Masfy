@@ -30,7 +30,7 @@ export function Navbar() {
           />
           <span className="flex flex-col">
             <span className="text-sm font-extrabold leading-none text-slate-950 sm:text-base">
-              Masfy Consultants
+              Masfy Consulting Engineers
             </span>
             <span className="mt-1 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-500 sm:block">
               Your gateway to engineering excellence
