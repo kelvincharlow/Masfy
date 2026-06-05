@@ -135,7 +135,7 @@ export default function AboutPage() {
             </div>
 
             <a
-              href="/company-profile.pdf"
+              href="/Masfy%20Profile%202025.pdf"
               download
               className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
             >

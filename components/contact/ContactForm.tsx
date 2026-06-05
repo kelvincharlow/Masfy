@@ -69,7 +69,7 @@ const contactDetails = [
   {
     label: "Company profile",
     value: "Download PDF",
-    href: "/company-profile.pdf",
+    href: "/Masfy%20Profile%202025.pdf",
     download: true,
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

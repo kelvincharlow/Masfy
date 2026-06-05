@@ -25,11 +25,9 @@ const preferredCategories = [
   'Hospitality',
   'Industrial',
   'Institutional',
-  'Infrastructure',
   'Churches',
   'Factories',
   'Warehouses',
-  'Renovations',
   'Structural Assessments',
   'Mixed Development',
   'Civil Works',
@@ -43,7 +41,10 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const categories = useMemo(() => {
-    const projectCategories = projects.map((project) => project.industry);
+    const hiddenCategories = new Set(['Infrastructure', 'Renovations']);
+    const projectCategories = projects
+      .map((project) => project.industry)
+      .filter((industry) => !hiddenCategories.has(industry));
     return Array.from(new Set([...preferredCategories, ...projectCategories]));
   }, [projects]);
 

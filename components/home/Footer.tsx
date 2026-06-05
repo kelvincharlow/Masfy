@@ -32,7 +32,7 @@ const socials = [
   },
   {
     label: 'YouTube',
-    href: 'https://www.masfyconsultants.com/#',
+    href: 'https://youtube.com/@masfyconsultingengineers-ke?si=XKXEuCl0eH12vrwC',
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
         <path d="M21.58 7.19a2.75 2.75 0 0 0-1.94-1.95C17.93 4.78 12 4.78 12 4.78s-5.93 0-7.64.46a2.75 2.75 0 0 0-1.94 1.95A28.8 28.8 0 0 0 1.96 12c0 1.67.16 3.34.46 4.81a2.75 2.75 0 0 0 1.94 1.95c1.71.46 7.64.46 7.64.46s5.93 0 7.64-.46a2.75 2.75 0 0 0 1.94-1.95c.3-1.47.46-3.14.46-4.81s-.16-3.34-.46-4.81M10 15.26V8.74L15.67 12Z" />
@@ -72,7 +72,7 @@ export function Footer() {
               <Link href="/projects" className="transition hover:text-white">Projects</Link>
               <Link href="/services" className="transition hover:text-white">Services</Link>
               <Link href="/contact" className="transition hover:text-white">Contact</Link>
-              <a href="/company-profile.pdf" download className="transition hover:text-white">
+              <a href="/Masfy%20Profile%202025.pdf" download className="transition hover:text-white">
                 Company Profile
               </a>
             </div>

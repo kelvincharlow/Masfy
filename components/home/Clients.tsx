@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { ArrowRight, BadgeCheck, Building2, Factory, Handshake } from 'lucide-react';
+import { BadgeCheck, Building2, Handshake } from 'lucide-react';
 
 const audiences = [
   'Developers',
@@ -10,13 +9,24 @@ const audiences = [
   'Hospitality teams',
 ];
 
-const sectors = [
-  { name: 'Residential', detail: 'Apartments, townhouses and private residences' },
-  { name: 'Commercial', detail: 'Offices, mixed-use assets and urban developments' },
-  { name: 'Hospitality', detail: 'Hotels, resorts and destination properties' },
-  { name: 'Industrial', detail: 'Factories, warehouses and production facilities' },
-  { name: 'Institutional', detail: 'Schools, hospitals and worship centres' },
-  { name: 'Infrastructure', detail: 'Civil works, drainage, roads and assessments' },
+const partners = [
+  {
+    name: 'Dunhill Building Contractors Ltd',
+    logo: '/patners/Duhill.jpeg',
+  },
+  {
+    name: 'Kayvee Construction Ltd',
+    detail: 'Building & general contractors',
+    logo: '/patners/Kayvee%20Construction%20Ltd.jpeg',
+  },
+  {
+    name: 'Fisic Designs',
+    logo: '/patners/Fisic%20Designs.jpeg',
+  },
+  {
+    name: 'Studio Infinity LLP Architects',
+    logo: '/patners/Studio%20Infinity.jpeg',
+  },
 ];
 
 const successSignals = [
@@ -89,37 +99,40 @@ export function Clients() {
           </div>
         </div>
 
-        <div className="border-y border-border bg-surface px-6 py-6 sm:px-8">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {sectors.map((sector) => (
-              <div
-                key={sector.name}
-                className="rounded-2xl border border-border bg-white p-4 shadow-sm"
-              >
-                <Factory className="h-5 w-5 text-brand-500" />
-                <p className="mt-3 text-sm font-extrabold text-slate-950">
-                  {sector.name}
-                </p>
-                <p className="mt-1 text-xs leading-5 text-slate-500">
-                  {sector.detail}
-                </p>
-              </div>
-            ))}
+        <div className="border-t border-border bg-surface/70 p-6 sm:p-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
+              Selected collaborators
+            </p>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">
+              A sample of project teams and consultants Masfy has worked with
+              across building and development work.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {partners.map((partner) => (
+                <div
+                  key={partner.name}
+                  className="rounded-2xl border border-border bg-white p-4 shadow-sm"
+                >
+                  <div className="flex h-16 items-center justify-center rounded-xl bg-surface p-3">
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <p className="mt-3 text-sm font-extrabold leading-tight text-slate-950">
+                    {partner.name}
+                  </p>
+                  {partner.detail && (
+                    <p className="mt-1 text-xs leading-5 text-slate-500">
+                      {partner.detail}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="flex flex-col gap-4 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
-          <p className="max-w-2xl text-sm leading-7 text-slate-600">
-            Real logos and client names can be added here once approved for
-            public display.
-          </p>
-          <Link
-            href="/projects"
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-700 md:hover:-translate-y-0.5"
-          >
-            View project evidence
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>

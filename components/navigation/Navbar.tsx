@@ -67,7 +67,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="/company-profile.pdf"
+            href="/Masfy%20Profile%202025.pdf"
             download
             className="rounded-full border border-border bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-brand-500/40 hover:text-slate-950"
           >
@@ -123,7 +123,7 @@ export function Navbar() {
           </nav>
           <div className="mt-4 grid gap-3 border-t border-border pt-4">
             <a
-              href="/company-profile.pdf"
+              href="/Masfy%20Profile%202025.pdf"
               download
               onClick={() => setMenuOpen(false)}
               className="block w-full rounded-full border border-border bg-white px-5 py-2.5 text-center text-sm font-semibold text-slate-700 transition hover:border-brand-500/40 hover:text-slate-950"
