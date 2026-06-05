@@ -83,7 +83,7 @@ const contactDetails = [
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const formspreeEndpoint = "https://formspree.io/f/xnnodkgw";
+const formspreeEndpoint = "https://formspree.io/f/mjgdgyza";
 
 const emptyForm = {
   name: "",
