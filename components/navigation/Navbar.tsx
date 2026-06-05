@@ -35,13 +35,13 @@ export function Navbar() {
               Masfy Consulting Engineers
             </span>
             <span className="mt-1 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-500 sm:block">
-              Your gateway to engineering excellence
+              Safe, efficient and buildable projects
             </span>
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((item) => {
             const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
             return (
@@ -65,7 +65,14 @@ export function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href="/company-profile.pdf"
+            download
+            className="rounded-full border border-border bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-brand-500/40 hover:text-slate-950"
+          >
+            Company Profile
+          </a>
           <Link
             href="/contact"
             className="rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm shadow-brand-500/20 transition hover:bg-brand-700"
@@ -76,7 +83,7 @@ export function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-slate-600 transition hover:bg-surface md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-slate-600 transition hover:bg-surface lg:hidden"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -94,7 +101,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-border bg-white px-6 pb-5 pt-3 md:hidden">
+        <div className="border-t border-border bg-white px-6 pb-5 pt-3 lg:hidden">
           <nav className="flex flex-col gap-1">
             {navLinks.map((item) => {
               const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
@@ -114,7 +121,15 @@ export function Navbar() {
               );
             })}
           </nav>
-          <div className="mt-4 border-t border-border pt-4">
+          <div className="mt-4 grid gap-3 border-t border-border pt-4">
+            <a
+              href="/company-profile.pdf"
+              download
+              onClick={() => setMenuOpen(false)}
+              className="block w-full rounded-full border border-border bg-white px-5 py-2.5 text-center text-sm font-semibold text-slate-700 transition hover:border-brand-500/40 hover:text-slate-950"
+            >
+              Download Company Profile
+            </a>
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}

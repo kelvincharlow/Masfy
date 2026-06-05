@@ -1,19 +1,22 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight, BadgeCheck, Building2, Handshake } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ArrowRight, BadgeCheck, Building2, Factory, Handshake } from 'lucide-react';
 
-const clients = [
-  { name: 'Atlas Engineering', industry: 'Structural', initials: 'AE' },
-  { name: 'Vertex Systems', industry: 'Industrial', initials: 'VS' },
-  { name: 'Harbor Renewables', industry: 'Energy', initials: 'HR' },
-  { name: 'Prime Logistics', industry: 'Transport', initials: 'PL' },
-  { name: 'Lumen Infrastructure', industry: 'Civil', initials: 'LI' },
-  { name: 'Skyline Developments', industry: 'Built Environment', initials: 'SD' },
-  { name: 'Meridian Works', industry: 'Industrial', initials: 'MW' },
-  { name: 'Apex Civils', industry: 'Civil', initials: 'AC' },
+const audiences = [
+  'Developers',
+  'Architects',
+  'Contractors',
+  'Institutions',
+  'Industrial clients',
+  'Hospitality teams',
+];
+
+const sectors = [
+  { name: 'Residential', detail: 'Apartments, townhouses and private residences' },
+  { name: 'Commercial', detail: 'Offices, mixed-use assets and urban developments' },
+  { name: 'Hospitality', detail: 'Hotels, resorts and destination properties' },
+  { name: 'Industrial', detail: 'Factories, warehouses and production facilities' },
+  { name: 'Institutional', detail: 'Schools, hospitals and worship centres' },
+  { name: 'Infrastructure', detail: 'Civil works, drainage, roads and assessments' },
 ];
 
 const successSignals = [
@@ -34,39 +37,34 @@ const successSignals = [
   },
 ];
 
-const marqueeClients = [...clients, ...clients];
-
 export function Clients() {
-  const [shouldAnimatePartners, setShouldAnimatePartners] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(
-      '(min-width: 768px) and (prefers-reduced-motion: no-preference)',
-    );
-    const update = () => setShouldAnimatePartners(media.matches);
-
-    update();
-    media.addEventListener('change', update);
-    return () => media.removeEventListener('change', update);
-  }, []);
-
-  const visibleClients = shouldAnimatePartners ? marqueeClients : clients.slice(0, 4);
-
   return (
     <section className="mx-auto max-w-6xl">
       <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
-        <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+        <div className="grid gap-7 p-6 sm:p-8 lg:grid-cols-[0.95fr_1.05fr] lg:p-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
               Client Success & Partners
             </p>
             <h2 className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-4xl">
-              Trusted engineering support for ambitious project teams.
+              Trusted by project teams across Kenya and the region.
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
-              Masfy works with developers, contractors and institutions that
-              need clear technical direction and dependable engineering delivery.
+              Masfy Consulting Engineers supports developers, architects,
+              contractors, institutions and industrial clients with practical
+              civil and structural engineering input.
             </p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {audiences.map((audience) => (
+                <span
+                  key={audience}
+                  className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-slate-700"
+                >
+                  {audience}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3 lg:self-end">
@@ -76,7 +74,7 @@ export function Clients() {
               return (
                 <div
                   key={signal.label}
-                  className="rounded-3xl border border-border bg-surface p-5"
+                  className="rounded-2xl border border-border bg-surface p-5"
                 >
                   <Icon className="h-5 w-5 text-brand-500" />
                   <p className="mt-4 text-2xl font-extrabold text-slate-950">
@@ -91,48 +89,35 @@ export function Clients() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden border-y border-border bg-surface py-5">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-surface to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-surface to-transparent" />
-
-          <motion.div
-            className="grid gap-3 px-5 sm:grid-cols-2 md:flex md:gap-4 md:px-0"
-            animate={shouldAnimatePartners ? { x: ['0%', '-50%'] } : undefined}
-            transition={
-              shouldAnimatePartners
-                ? { duration: 34, repeat: Infinity, ease: 'linear' }
-                : undefined
-            }
-          >
-            {visibleClients.map((client, index) => (
+        <div className="border-y border-border bg-surface px-6 py-6 sm:px-8">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {sectors.map((sector) => (
               <div
-                key={`${client.name}-${index}`}
-                className="flex min-w-0 items-center gap-4 rounded-2xl border border-border bg-white px-5 py-4 shadow-sm md:min-w-[230px]"
+                key={sector.name}
+                className="rounded-2xl border border-border bg-white p-4 shadow-sm"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-xs font-extrabold text-brand-700">
-                  {client.initials}
-                </div>
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-slate-950">
-                    {client.name}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-500">{client.industry}</p>
-                </div>
+                <Factory className="h-5 w-5 text-brand-500" />
+                <p className="mt-3 text-sm font-extrabold text-slate-950">
+                  {sector.name}
+                </p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">
+                  {sector.detail}
+                </p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         <div className="flex flex-col gap-4 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
           <p className="max-w-2xl text-sm leading-7 text-slate-600">
-            From early design decisions to delivery support, we help partners
-            move with greater technical confidence.
+            Real logos and client names can be added here once approved for
+            public display.
           </p>
           <Link
-            href="/contact"
+            href="/projects"
             className="inline-flex w-fit items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-700 md:hover:-translate-y-0.5"
           >
-            Start a partnership
+            View project evidence
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

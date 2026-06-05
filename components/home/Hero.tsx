@@ -50,6 +50,13 @@ export function Hero() {
     return () => clearInterval(id);
   }, [next]);
 
+  useEffect(() => {
+    slides.forEach((slide) => {
+      const image = new window.Image();
+      image.src = slide.image;
+    });
+  }, []);
+
   return (
     <section className="relative w-full">
       <div className="relative min-h-[430px] overflow-hidden rounded-[1.5rem] bg-slate-950 shadow-2xl shadow-slate-950/20 sm:min-h-[470px] sm:rounded-[2rem] lg:min-h-[560px]">
@@ -58,9 +65,9 @@ export function Hero() {
             key={slide.image}
             src={slide.image}
             alt={slide.label}
-            loading={index === 0 ? 'eager' : 'lazy'}
+            loading="eager"
             decoding="async"
-            className={`absolute inset-0 h-full w-full object-cover md:transition-opacity md:duration-700 ${
+            className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
               index === current ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -72,8 +79,8 @@ export function Hero() {
 
         <div className="relative flex min-h-[430px] flex-col justify-between gap-6 px-5 py-6 sm:min-h-[470px] sm:px-8 sm:py-7 lg:min-h-[560px] lg:px-12 lg:py-10">
           <div className="max-w-3xl py-2 lg:py-0">
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Your Gateway to Engineering Excellence.
+            <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Civil & Structural Engineering Solutions for Safe, Efficient and Buildable Projects.
             </h1>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-200 sm:mt-6 sm:text-lg sm:leading-8">

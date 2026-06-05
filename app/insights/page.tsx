@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -8,38 +9,74 @@ import {
   Leaf,
   Lightbulb,
   Newspaper,
+  SearchCheck,
+  ShieldAlert,
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Engineering Insights | Masfy Consulting Engineers Kenya',
+  description:
+    'Practical engineering articles, project lessons, and technical guidance for developers, architects, contractors, and property owners in Kenya.',
+};
 
 const featuredInsights = [
   {
-    title: 'What Makes a Building Structurally Efficient?',
-    category: 'Technical Notes',
+    title: 'When Do You Need a Structural Engineer in Kenya?',
+    category: 'Client Guide',
     description:
-      'A practical look at how load paths, material choices, grids, and coordination decisions shape structural performance.',
+      'A practical guide for developers, homeowners, architects, and contractors deciding when technical structural input is required.',
     icon: Building2,
   },
   {
-    title: 'Using BIM to Reduce Rework Before Construction',
-    category: 'Digital Delivery',
+    title: 'Common Causes of Cracks in Buildings and When to Worry',
+    category: 'Structural Assessment',
     description:
-      'How model-led coordination helps project teams identify clashes, clarify assumptions, and improve approval workflows.',
+      'How to read warning signs, understand likely causes, and know when to request a building structural assessment in Kenya.',
+    icon: ShieldAlert,
+  },
+  {
+    title: 'Why Geotechnical Investigations Matter Before Construction',
+    category: 'Foundations',
+    description:
+      'Why soil information shapes foundation design, cost control, safety, and long-term building performance.',
+    icon: SearchCheck,
+  },
+  {
+    title: 'How to Reduce Structural Costs Without Compromising Safety',
+    category: 'Value Engineering',
+    description:
+      'Where smart grids, coordination, material choices, and early review can improve structural efficiency.',
     icon: DraftingCompass,
   },
   {
-    title: 'Sustainability in Civil and Structural Design',
-    category: 'Sustainable Design',
+    title: 'Retaining Wall Failure: Causes and Prevention',
+    category: 'Technical Notes',
     description:
-      'Where lifecycle thinking, efficient materials, drainage planning, and maintainability create long-term value.',
+      'Key lessons for retaining wall design in Kenya, including drainage, soil pressure, construction quality, and monitoring.',
+    icon: Building2,
+  },
+  {
+    title: 'What to Consider Before Adding Another Floor to an Existing Building',
+    category: 'Alterations',
+    description:
+      'The checks needed before vertical extensions, from existing foundations to columns, slabs, loading, and approvals.',
+    icon: BookOpen,
+  },
+  {
+    title: 'Why Stormwater Drainage Design Is Critical for Developments',
+    category: 'Civil Engineering',
+    description:
+      'How drainage design in Nairobi and across Kenya protects developments, neighboring properties, and long-term asset value.',
     icon: Leaf,
   },
 ];
 
 const insightTypes = [
-  'Engineering explainers',
+  'Engineering articles',
   'Project lessons',
-  'Design coordination notes',
-  'Sustainability perspectives',
   'Company updates',
+  'Technical guidance',
+  'Client education',
   'Graduate learning resources',
 ];
 
@@ -53,12 +90,12 @@ export default function InsightsPage() {
               Insights
             </p>
             <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-slate-950 sm:text-5xl">
-              Engineering thinking for better project decisions.
+              Practical engineering thinking for better project decisions.
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-              A future home for Masfy&apos;s technical articles, project lessons,
-              digital delivery notes, sustainability perspectives, and company
-              updates.
+              Our insights section will feature practical engineering articles,
+              project lessons, company updates and technical guidance for
+              developers, architects, contractors and property owners.
             </p>
           </div>
 
@@ -85,10 +122,10 @@ export default function InsightsPage() {
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
-                Featured topics
+                Planned articles
               </p>
               <h2 className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight text-slate-950">
-                Start with practical knowledge your clients can understand.
+                Useful topics clients already search for.
               </h2>
             </div>
             <Link
@@ -100,14 +137,14 @@ export default function InsightsPage() {
             </Link>
           </div>
 
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featuredInsights.map((insight) => {
               const Icon = insight.icon;
 
               return (
                 <article
                   key={insight.title}
-                  className="group rounded-3xl border border-border bg-white p-6 shadow-sm transition hover:shadow-xl md:hover:-translate-y-1"
+                  className="rounded-3xl border border-border bg-white p-6 shadow-sm transition hover:shadow-xl md:hover:-translate-y-1"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
@@ -138,12 +175,13 @@ export default function InsightsPage() {
           <div className="rounded-[2rem] bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/10 sm:p-8">
             <Newspaper className="h-8 w-8 text-brand-100" />
             <h2 className="mt-5 text-3xl font-extrabold leading-tight">
-              When Sanity is ready, this becomes your article hub.
+              Built for practical answers, not empty updates.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-300">
-              The page is structured so future posts can include title,
-              category, summary, author, publish date, cover image, and article
-              body.
+              The strongest articles will explain real engineering decisions in
+              plain language, supported by Masfy project lessons, field
+              observations, drawings, Revit model views, and site photos where
+              permission is available.
             </p>
           </div>
 
@@ -151,7 +189,7 @@ export default function InsightsPage() {
             {[
               {
                 title: 'Technical articles',
-                description: 'Explain engineering concepts in plain, useful language.',
+                description: 'Explain civil and structural engineering concepts in plain, useful language.',
                 icon: BookOpen,
               },
               {

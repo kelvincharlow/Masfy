@@ -16,14 +16,33 @@ type ProjectsExplorerProps = {
   projects: Project[];
 };
 
+const preferredCategories = [
+  'All',
+  'Residential',
+  'Apartments',
+  'Commercial',
+  'Hospitality',
+  'Industrial',
+  'Institutional',
+  'Infrastructure',
+  'Churches',
+  'Factories',
+  'Warehouses',
+  'Renovations',
+  'Structural Assessments',
+  'Mixed Development',
+  'Civil Works',
+  'Townhouses',
+];
+
 export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categories = useMemo(
-    () => ['All', ...Array.from(new Set(projects.map((project) => project.industry)))],
-    [projects],
-  );
+  const categories = useMemo(() => {
+    const projectCategories = projects.map((project) => project.industry);
+    return Array.from(new Set([...preferredCategories, ...projectCategories]));
+  }, [projects]);
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === 'All') return projects;
@@ -43,9 +62,10 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
             </h1>
           </div>
           <p className="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-            Browse featured Masfy projects by industry. Select a project image
-            to view the full description, location, year, services provided,
-            challenges, outcome, and gallery.
+            Browse Masfy project work by sector. Select a project image to view
+            the full description, location, client sector, Masfy scope,
+            structural or civil systems, challenges, solution, outcome, and
+            gallery.
           </p>
         </div>
 
@@ -102,11 +122,26 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                   <p className="mt-3 text-sm leading-6 text-slate-600">
                     {project.summary}
                   </p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                    {project.clientSector}
+                  </p>
                 </div>
               </button>
             </article>
           ))}
         </div>
+
+        {filteredProjects.length === 0 && (
+          <div className="mt-8 rounded-[2rem] border border-dashed border-border bg-surface p-8 text-center">
+            <h2 className="text-xl font-extrabold text-slate-950">
+              No published projects in {activeCategory} yet.
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
+              More project case studies will be added as details, photos, and
+              approvals are prepared.
+            </p>
+          </div>
+        )}
       </section>
 
       <AnimatePresence>
@@ -158,6 +193,22 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                   <div className="mt-8 grid gap-5 sm:grid-cols-2">
                     <section className="rounded-3xl border border-border bg-surface p-5">
                       <h3 className="text-sm font-bold uppercase tracking-[0.22em] text-slate-400">
+                        Masfy scope
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">
+                        {selectedProject.masfyScope}
+                      </p>
+                    </section>
+                    <section className="rounded-3xl border border-border bg-surface p-5">
+                      <h3 className="text-sm font-bold uppercase tracking-[0.22em] text-slate-400">
+                        Engineering solution
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">
+                        {selectedProject.solution}
+                      </p>
+                    </section>
+                    <section className="rounded-3xl border border-border bg-surface p-5">
+                      <h3 className="text-sm font-bold uppercase tracking-[0.22em] text-slate-400">
                         Challenges
                       </h3>
                       <p className="mt-3 text-sm leading-7 text-slate-600">
@@ -203,16 +254,41 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                         <p className="mt-1 font-semibold">{selectedProject.location}</p>
                       </div>
                     </div>
-                    <div className="mt-4 flex items-center gap-3">
+                    <div className="mt-4 flex items-center gap-3 border-b border-white/10 pb-4">
                       <Calendar className="h-5 w-5 text-brand-100" />
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-                          Year
+                          Year / Status
                         </p>
-                        <p className="mt-1 font-semibold">{selectedProject.year}</p>
+                        <p className="mt-1 font-semibold">{selectedProject.status}</p>
                       </div>
                     </div>
+                    <div className="mt-4">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+                        Client / Sector
+                      </p>
+                      <p className="mt-1 font-semibold">{selectedProject.clientSector}</p>
+                    </div>
                   </div>
+
+                  {selectedProject.systems.length > 0 && (
+                    <div className="rounded-3xl border border-border bg-white p-5 shadow-sm">
+                      <h3 className="text-sm font-bold uppercase tracking-[0.22em] text-slate-400">
+                        Structural / civil systems
+                      </h3>
+                      <div className="mt-4 space-y-3">
+                        {selectedProject.systems.map((system) => (
+                          <div
+                            key={system}
+                            className="flex items-center gap-2 text-sm font-medium text-slate-700"
+                          >
+                            <CheckCircle2 className="h-4 w-4 text-brand-500" />
+                            {system}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   <div className="rounded-3xl border border-border bg-white p-5 shadow-sm">
                     <h3 className="text-sm font-bold uppercase tracking-[0.22em] text-slate-400">

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -21,6 +22,13 @@ const serviceAreas = [
     description:
       'Infrastructure systems designed for function, resilience, efficiency, and long-term value.',
     icon: DraftingCompass,
+    when: [
+      'Stormwater drainage design and drainage design in Nairobi',
+      'Sewer and water reticulation',
+      'Roads, parking and external works',
+      'Site grading, levels and access planning',
+      'County approval support and technical documentation',
+    ],
     items: [
       'Master planning for urban and rural infrastructure',
       'Site and service scheme design optimized for space and cost',
@@ -40,6 +48,14 @@ const serviceAreas = [
     description:
       'Safe, durable, and efficient structural solutions for modern developments and specialist assets.',
     icon: Building2,
+    when: [
+      'Developing apartments, offices, factories or homes',
+      'Structural design for apartments in Nairobi',
+      'Adding another floor to an existing building',
+      'Changing use from residential to office or commercial',
+      'Seeing cracks, settlement or structural distress and needing building structural assessment in Kenya',
+      'Constructing steel structures, tanks, retaining walls or foundations',
+    ],
     items: [
       'Multi-storey residential and commercial buildings from low-rise to high-rise',
       'Industrial plants, factories and production facilities',
@@ -48,6 +64,7 @@ const serviceAreas = [
       'Hospitality developments such as hotels, resorts and luxury retreats',
       'Recreational and sports facilities',
       'Bridges, culverts and retaining walls',
+      'Retaining wall design Kenya and foundation design Kenya',
       'Dams, marine structures and river protection works',
       'Water storage systems including reservoirs, underground tanks and elevated tanks',
       'Structural audits, surveys and appraisal reports',
@@ -61,6 +78,13 @@ const serviceAreas = [
     description:
       'Investigations, testing, surveying, and technical support for informed engineering decisions.',
     icon: SearchCheck,
+    when: [
+      'You need soil investigation before foundation design',
+      'You require site levels, boundaries or earthworks quantities',
+      'You need due diligence before purchase or development',
+      'A slope, foundation or existing structure needs technical review',
+      'Design assumptions need field data before approvals or tender',
+    ],
     groups: [
       {
         title: 'Geotechnical Engineering',
@@ -135,6 +159,25 @@ const approach = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: 'Services | Civil and Structural Engineering Consultants in Kenya',
+  description:
+    'Masfy provides structural design, civil engineering, drainage design, foundation design, retaining wall design, steel structure design, and construction supervision support in Kenya.',
+};
+
+function CheckItem({ children, boxed = false }: { children: React.ReactNode; boxed?: boolean }) {
+  return (
+    <li
+      className={`flex gap-3 text-sm leading-6 text-slate-600 ${
+        boxed ? 'rounded-2xl border border-border bg-surface p-4' : ''
+      }`}
+    >
+      <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
+      <span>{children}</span>
+    </li>
+  );
+}
+
 export default function ServicesPage() {
   return (
     <main>
@@ -148,10 +191,11 @@ export default function ServicesPage() {
               Engineering services built for performance, safety, and long-term value.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-              At Masfy Consultants, we do not just solve engineering problems.
-              We anticipate them. Our civil, structural, and auxiliary services
-              help developers, contractors, institutions, and governments turn
-              vision into reality with confidence.
+              At Masfy Consulting Engineers, we do not just solve engineering
+              problems. We anticipate them. As civil and structural engineers
+              in Nairobi, our civil, structural, and auxiliary services help
+              developers, contractors, institutions, and governments across
+              Kenya turn vision into reality with confidence.
             </p>
           </div>
 
@@ -214,7 +258,9 @@ export default function ServicesPage() {
           <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
             We combine technical depth, field understanding, and modern design
             tools to provide well-coordinated engineering solutions across a
-            wide range of developments.
+            wide range of developments, from structural engineering consultancy
+            in Kenya to civil engineering consultancy for infrastructure,
+            external works, and approvals.
           </p>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
@@ -257,14 +303,14 @@ export default function ServicesPage() {
               className="scroll-mt-28 overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm"
             >
               <div className="grid lg:grid-cols-[0.42fr_1fr]">
-                <div className="bg-slate-950 p-6 text-white sm:p-8">
+                <div className="bg-slate-950 p-5 text-white sm:p-6">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <p className="mt-8 text-sm font-bold uppercase tracking-[0.28em] text-brand-100">
+                  <p className="mt-6 text-sm font-bold uppercase tracking-[0.28em] text-brand-100">
                     {service.number} - {service.eyebrow}
                   </p>
-                  <h2 className="mt-3 text-3xl font-extrabold leading-tight">
+                  <h2 className="mt-3 text-2xl font-extrabold leading-tight">
                     {service.title}
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-slate-300">
@@ -272,7 +318,37 @@ export default function ServicesPage() {
                   </p>
                 </div>
 
-                <div className="p-6 sm:p-8">
+                <div className="p-5 sm:p-6">
+                  <div className="mb-5 rounded-3xl border border-border bg-surface p-5">
+                    <h3 className="text-lg font-extrabold text-slate-950">
+                      Use this when you need:
+                    </h3>
+                    <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {service.when.slice(0, 3).map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-3 text-sm leading-6 text-slate-600"
+                        >
+                          <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {service.when.length > 3 && (
+                      <details className="group mt-4">
+                        <summary className="cursor-pointer list-none text-sm font-extrabold text-brand-500 transition hover:text-brand-700">
+                          <span className="group-open:hidden">See more</span>
+                          <span className="hidden group-open:inline">Show less</span>
+                        </summary>
+                        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                          {service.when.slice(3).map((item) => (
+                            <CheckItem key={item}>{item}</CheckItem>
+                          ))}
+                        </ul>
+                      </details>
+                    )}
+                  </div>
+
                   {'groups' in service && service.groups ? (
                     <div className="grid gap-5 sm:grid-cols-2">
                       {service.groups.map((group) => (
@@ -284,31 +360,55 @@ export default function ServicesPage() {
                             {group.title}
                           </h3>
                           <ul className="mt-4 space-y-3">
-                            {group.items.map((item) => (
-                              <li
-                                key={item}
-                                className="flex gap-3 text-sm leading-6 text-slate-600"
-                              >
-                                <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
-                                <span>{item}</span>
-                              </li>
+                            {group.items.slice(0, 2).map((item) => (
+                              <CheckItem key={item}>{item}</CheckItem>
                             ))}
                           </ul>
+                          {group.items.length > 2 && (
+                            <details className="group mt-4">
+                              <summary className="cursor-pointer list-none text-sm font-extrabold text-brand-500 transition hover:text-brand-700">
+                                <span className="group-open:hidden">See more</span>
+                                <span className="hidden group-open:inline">Show less</span>
+                              </summary>
+                              <ul className="mt-4 space-y-3">
+                                {group.items.slice(2).map((item) => (
+                                  <CheckItem key={item}>{item}</CheckItem>
+                                ))}
+                              </ul>
+                            </details>
+                          )}
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <ul className="grid gap-3 sm:grid-cols-2">
-                      {service.items.map((item) => (
-                        <li
-                          key={item}
-                          className="flex gap-3 rounded-2xl border border-border bg-surface p-4 text-sm leading-6 text-slate-600"
-                        >
-                          <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <>
+                      <ul className="grid gap-3 sm:grid-cols-2">
+                        {service.items.slice(0, 2).map((item) => (
+                          <CheckItem key={item} boxed>
+                            {item}
+                          </CheckItem>
+                        ))}
+                      </ul>
+                      {service.items.length > 2 && (
+                        <details className="group mt-4">
+                          <summary className="inline-flex cursor-pointer list-none items-center justify-center rounded-full border border-border bg-white px-5 py-2.5 text-sm font-extrabold text-brand-500 transition hover:border-brand-500/40 hover:text-brand-700">
+                            <span className="group-open:hidden">
+                              See more services
+                            </span>
+                            <span className="hidden group-open:inline">
+                              Show fewer services
+                            </span>
+                          </summary>
+                          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                            {service.items.slice(2).map((item) => (
+                              <CheckItem key={item} boxed>
+                                {item}
+                              </CheckItem>
+                            ))}
+                          </ul>
+                        </details>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
@@ -369,9 +469,10 @@ export default function ServicesPage() {
                 How we deliver engineering excellence.
               </h2>
               <p className="mt-4 text-sm leading-7 text-slate-300">
-                Since 2012, Masfy Consultants has partnered with visionary
-                developers to deliver complex engineering solutions across Kenya
-                and the wider region with confidence, clarity, and precision.
+                Since 2012, Masfy Consulting Engineers has partnered with
+                visionary developers to deliver complex engineering solutions
+                across Kenya and the wider region with confidence, clarity, and
+                precision.
               </p>
             </div>
 

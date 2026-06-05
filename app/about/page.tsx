@@ -1,15 +1,17 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import {
   BadgeCheck,
-  Building2,
   Clock,
+  FileCheck2,
   Lightbulb,
   MessageSquare,
   ShieldCheck,
   Sparkles,
+  Scale,
   Target,
   Trophy,
   Users,
-  WalletCards,
 } from 'lucide-react';
 
 const foundations = [
@@ -74,6 +76,26 @@ const stats = [
 
 const platforms = ['Revit', 'SAP2000', 'Civil 3D', 'InfraWorks 360', '3ds Max', 'Robot Structural Analysis'];
 
+const standards = [
+  'Eurocodes',
+  'British Standards',
+  'Kenyan standards',
+  'Project-specific international codes',
+];
+
+const processSteps = [
+  'Define design assumptions and client requirements',
+  'Coordinate civil, structural, architectural, and services inputs',
+  'Review calculations, drawings, and model outputs before issue',
+  'Respond to site feedback, approvals, and construction-stage queries',
+];
+
+export const metadata: Metadata = {
+  title: 'About Masfy Consulting Engineers | Structural Engineering Consultants in Kenya',
+  description:
+    'Learn about Masfy Consulting Engineers, a civil and structural engineering consultancy in Kenya founded in 2012 and led by Eng. Daniel K. Manza.',
+};
+
 export default function AboutPage() {
   return (
     <main>
@@ -87,11 +109,10 @@ export default function AboutPage() {
               A civil and structural engineering consultancy shaping East Africa&apos;s built environment.
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-              Masfy Consulting Engineers is a distinguished civil and structural
-              engineering consultancy at the forefront of East Africa&apos;s
-              construction industry. Established in 2012, the firm has
-              contributed to the development of a high-value Kenyan property
-              portfolio exceeding USD 100 million.
+              Established in 2012, Masfy Consulting Engineers provides civil
+              and structural engineering services for residential, commercial,
+              hospitality, industrial, and infrastructure projects. The firm has
+              supported a Kenyan property portfolio exceeding USD 100 million.
             </p>
           </div>
 
@@ -118,56 +139,143 @@ export default function AboutPage() {
                 Founder
               </p>
               <p className="mt-2 text-2xl font-extrabold">Eng. Daniel K. Manza</p>
+              <p className="mt-2 text-sm font-semibold text-slate-300">
+                Registered Consulting Engineer (E640)
+              </p>
             </div>
+
+            <a
+              href="/company-profile.pdf"
+              download
+              className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+            >
+              Download Company Profile
+            </a>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-8 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="rounded-[2rem] border border-border bg-white p-6 shadow-sm sm:p-8">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 ring-1 ring-brand-100">
-              <Building2 className="h-7 w-7" />
+        <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm">
+          <div className="grid gap-0 lg:grid-cols-[0.42fr_1fr]">
+            <div className="bg-slate-950 p-6 text-white sm:p-8">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.07]">
+                <Image
+                  src="/founder.jpeg"
+                  alt="Eng. Daniel K. Manza, founder of Masfy Consulting Engineers"
+                  fill
+                  sizes="(min-width: 1024px) 380px, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
-            <h2 className="mt-6 text-3xl font-extrabold leading-tight text-slate-950">
-              Our Company
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
-              The firm delivers engineering solutions that embody quality,
-              innovation, and integrity. Our multidisciplinary in-house team
-              provides fully integrated structural and civil engineering services
-              that align seamlessly with architectural and construction
-              processes.
-            </p>
-            <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
-              Sustainability forms a central pillar of our design philosophy. We
-              consistently evaluate environmental impact and adopt green
-              technologies and resource-efficient materials to support
-              responsible and enduring development.
-            </p>
-          </div>
 
-          <div className="rounded-[2rem] bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/10 sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-100">
-              Design platforms
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold leading-tight">
-              Precision, efficiency, and value across every project stage.
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300">
-              We employ advanced design platforms to strengthen analysis,
-              documentation, coordination, and decision-making.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {platforms.map((platform) => (
-                <span
-                  key={platform}
-                  className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-xs font-semibold text-slate-200"
-                >
-                  {platform}
-                </span>
-              ))}
+            <div className="p-6 sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
+                Founder
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold leading-tight text-slate-950">
+                Eng. Daniel K. Manza
+              </h2>
+              <p className="mt-2 text-sm font-bold text-brand-700">
+                Founder and Registered Consulting Engineer (E640)
+              </p>
+              <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
+                Masfy is led by Eng. Daniel K. Manza, whose work combines
+                technical design, practical site experience, and collaborative
+                delivery. The focus is simple: safe, economical, and buildable
+                engineering decisions.
+              </p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                {[
+                  'Professional oversight',
+                  'Constructability judgement',
+                  'Clear project coordination',
+                ].map((point) => (
+                  <div key={point} className="rounded-2xl border border-border bg-surface p-4">
+                    <BadgeCheck className="h-5 w-5 text-brand-500" />
+                    <p className="mt-3 text-sm font-semibold leading-6 text-slate-700">
+                      {point}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="/company-profile.pdf"
+                download
+                className="mt-6 inline-flex w-fit items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-700"
+              >
+                Download Company Profile
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-8 lg:px-8">
+        <div className="rounded-[2rem] border border-border bg-surface p-6 sm:p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-500">
+            How We Work
+          </p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-extrabold leading-tight text-slate-950">
+            Clear standards, careful review, and coordinated delivery.
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
+            Masfy uses recognized design standards, modern analysis platforms,
+            and structured QA/QC reviews to reduce risk before drawings reach
+            site.
+          </p>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            <article className="rounded-3xl border border-border bg-white p-6 shadow-sm">
+              <Scale className="h-6 w-6 text-brand-500" />
+              <h3 className="mt-5 text-lg font-extrabold text-slate-950">
+                Standards
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {standards.map((standard) => (
+                  <span
+                    key={standard}
+                    className="rounded-full bg-surface px-3 py-1.5 text-xs font-semibold text-slate-700"
+                  >
+                    {standard}
+                  </span>
+                ))}
+              </div>
+            </article>
+
+            <article className="rounded-3xl border border-border bg-white p-6 shadow-sm">
+              <FileCheck2 className="h-6 w-6 text-brand-500" />
+              <h3 className="mt-5 text-lg font-extrabold text-slate-950">
+                Review
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {processSteps.slice(0, 3).map((step) => (
+                  <li key={step} className="flex gap-3 text-sm leading-6 text-slate-600">
+                    <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="rounded-3xl border border-border bg-white p-6 shadow-sm">
+              <BadgeCheck className="h-6 w-6 text-brand-500" />
+              <h3 className="mt-5 text-lg font-extrabold text-slate-950">
+                Tools
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {platforms.map((platform) => (
+                  <span
+                    key={platform}
+                    className="rounded-full bg-surface px-3 py-1.5 text-xs font-semibold text-slate-700"
+                  >
+                    {platform}
+                  </span>
+                ))}
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -246,30 +354,6 @@ export default function AboutPage() {
                 </article>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-16 lg:px-8">
-        <div className="overflow-hidden rounded-[2rem] bg-brand-500 p-6 text-white shadow-2xl shadow-brand-500/20 sm:p-8 lg:p-10">
-          <div className="grid gap-5 lg:grid-cols-[1fr_0.45fr] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-brand-100">
-                Built on value
-              </p>
-              <h2 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight sm:text-4xl">
-                Functionally sound, economically feasible, and technically excellent.
-              </h2>
-            </div>
-            <div className="rounded-3xl border border-white/20 bg-white/10 p-5 backdrop-blur">
-              <div className="flex items-center gap-3">
-                <WalletCards className="h-6 w-6 text-brand-100" />
-                <p className="text-sm font-semibold leading-6">
-                  Value-engineered solutions that protect budget, quality, and
-                  long-term performance.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
