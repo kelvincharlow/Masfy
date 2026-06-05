@@ -47,7 +47,18 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-8 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.7fr_0.8fr_1.1fr_0.8fr]">
           <div className="space-y-3">
-            <p className="text-lg font-semibold text-white">Masfy Consulting Engineers</p>
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white">
+                <img
+                  src="/Masfy Logo 2025_New_Version.png"
+                  alt=""
+                  className="h-12 w-auto max-w-none object-contain"
+                />
+              </span>
+              <p className="text-lg font-semibold leading-tight text-white">
+                Masfy Consulting Engineers
+              </p>
+            </div>
             <p className="max-w-md text-sm leading-6 text-slate-300">
               We love what we do. Allow us to help transform your vision into reality.
             </p>

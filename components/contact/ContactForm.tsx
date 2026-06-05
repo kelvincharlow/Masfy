@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 const services = [
   "Civil Engineering",
@@ -145,40 +144,20 @@ export function ContactForm() {
   return (
     <section className="mx-auto max-w-6xl">
       <div className="mb-10">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-sm uppercase tracking-[0.24em] text-brand-500"
-        >
+        <p className="text-sm uppercase tracking-[0.24em] text-brand-500">
           Contact us
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.08 }}
-          className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl"
-        >
+        </p>
+        <h1 className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl">
           Let&apos;s work together
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.16 }}
-          className="mt-3 max-w-xl text-slate-600"
-        >
+        </h1>
+        <p className="mt-3 max-w-xl text-slate-600">
           Tell us about your project, location, stage, and the support you need.
           We will get back to you within one business day.
-        </motion.p>
+        </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="rounded-3xl border border-border bg-surface p-5 shadow-sm sm:p-8"
-        >
+        <div className="rounded-3xl border border-border bg-surface p-5 shadow-sm sm:p-8">
           {status === "success" ? (
             <div className="flex h-full flex-col items-center justify-center gap-4 py-16 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-50">
@@ -278,10 +257,9 @@ export function ContactForm() {
                     </p>
                   )}
                 </div>
-                <motion.button
+                <button
                   type="submit"
                   disabled={status === "loading"}
-                  whileTap={{ scale: 0.97 }}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 px-7 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:opacity-70"
                 >
                   {status === "loading" ? (
@@ -299,19 +277,14 @@ export function ContactForm() {
                       </svg>
                     </>
                   )}
-                </motion.button>
+                </button>
               </div>
             </form>
           )}
-        </motion.div>
+        </div>
 
         <div className="flex flex-col gap-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.28 }}
-            className="rounded-3xl border border-border bg-surface p-7 shadow-sm"
-          >
+          <div className="rounded-3xl border border-border bg-surface p-7 shadow-sm">
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-500">
               Get in touch
             </h3>
@@ -334,14 +307,9 @@ export function ContactForm() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.32 }}
-            className="rounded-3xl border border-border bg-brand-500 p-7 shadow-sm"
-          >
+          <div className="rounded-3xl border border-border bg-brand-500 p-7 shadow-sm">
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-100">
               Why Masfy?
             </h3>
@@ -360,7 +328,7 @@ export function ContactForm() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

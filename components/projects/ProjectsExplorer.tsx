@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowUpRight,
   Calendar,
@@ -144,16 +143,9 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
         )}
       </section>
 
-      <AnimatePresence>
-        {selectedProject && (
-          <div className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/70 px-4 py-6 backdrop-blur-sm sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 24, scale: 0.98 }}
-              transition={{ duration: 0.25 }}
-              className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl"
-            >
+      {selectedProject && (
+        <div className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/70 px-3 py-4 sm:px-6 sm:py-6">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-[1.5rem] bg-white shadow-2xl sm:rounded-[2rem]">
               <div className="relative h-[280px] overflow-hidden sm:h-[420px]">
                 <img
                   src={selectedProject.image}
@@ -308,10 +300,9 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                   </div>
                 </aside>
               </div>
-            </motion.div>
           </div>
-        )}
-      </AnimatePresence>
+        </div>
+      )}
     </>
   );
 }

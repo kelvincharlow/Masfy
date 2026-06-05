@@ -10,7 +10,7 @@ export function WhatsAppWidget() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-5 right-4 z-[70] flex items-end gap-3 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-4 right-3 z-[70] flex max-w-[calc(100vw-1.5rem)] items-end gap-2 sm:bottom-6 sm:right-6 sm:gap-3">
       {!open && (
         <button
           type="button"
@@ -22,13 +22,13 @@ export function WhatsAppWidget() {
       )}
 
       {open && (
-        <div className="w-[min(calc(100vw-2rem),320px)] rounded-[1.5rem] border border-border bg-white p-4 shadow-2xl shadow-slate-950/20">
+        <div className="w-[min(calc(100vw-5.25rem),320px)] rounded-[1.25rem] border border-border bg-white p-4 shadow-2xl shadow-slate-950/20 sm:w-[320px] sm:rounded-[1.5rem]">
           <div className="flex items-start justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
+            <div className="flex min-w-0 items-center gap-3">
+              <div className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white min-[390px]:flex">
                 <MessageCircle className="h-5 w-5" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-sm font-extrabold text-slate-950">
                   WhatsApp Chat
                 </p>
@@ -64,9 +64,9 @@ export function WhatsAppWidget() {
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-label="Open WhatsApp chat"
-        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/30 transition hover:bg-[#1EBE5D] sm:h-16 sm:w-16"
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/30 transition hover:bg-[#1EBE5D] sm:h-16 sm:w-16"
       >
-        {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-7 w-7" />}
+        {open ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />}
       </button>
     </div>
   );

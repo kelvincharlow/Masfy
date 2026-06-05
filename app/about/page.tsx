@@ -120,28 +120,18 @@ export default function AboutPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
               Company profile
             </p>
-            <div className="mt-4 grid grid-cols-3 gap-2">
+            <div className="mt-4 grid gap-2 min-[380px]:grid-cols-3">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.07] p-4"
+                  className="rounded-2xl border border-white/10 bg-white/[0.07] p-3 sm:p-4"
                 >
-                  <p className="text-2xl font-extrabold">{stat.value}</p>
+                  <p className="text-xl font-extrabold sm:text-2xl">{stat.value}</p>
                   <p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-slate-400">
                     {stat.label}
                   </p>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-5 rounded-3xl border border-white/10 bg-white/[0.07] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-100">
-                Founder
-              </p>
-              <p className="mt-2 text-2xl font-extrabold">Eng. Daniel K. Manza</p>
-              <p className="mt-2 text-sm font-semibold text-slate-300">
-                Registered Consulting Engineer (E640)
-              </p>
             </div>
 
             <a
@@ -201,13 +191,6 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-              <a
-                href="/company-profile.pdf"
-                download
-                className="mt-6 inline-flex w-fit items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-700"
-              >
-                Download Company Profile
-              </a>
             </div>
           </div>
         </div>
