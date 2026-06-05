@@ -5,6 +5,8 @@ import {
   ArrowUpRight,
   Calendar,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
   Image as ImageIcon,
   MapPinned,
   X,
@@ -37,6 +39,8 @@ const preferredCategories = [
 export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const categories = useMemo(() => {
     const projectCategories = projects.map((project) => project.industry);
@@ -47,6 +51,38 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
     if (activeCategory === 'All') return projects;
     return projects.filter((project) => project.industry === activeCategory);
   }, [activeCategory, projects]);
+
+  const closeProject = () => {
+    setSelectedProject(null);
+    setGalleryIndex(null);
+  };
+
+  const showPreviousImage = () => {
+    if (!selectedProject || galleryIndex === null) return;
+    setGalleryIndex(
+      (galleryIndex - 1 + selectedProject.gallery.length) %
+        selectedProject.gallery.length,
+    );
+  };
+
+  const showNextImage = () => {
+    if (!selectedProject || galleryIndex === null) return;
+    setGalleryIndex((galleryIndex + 1) % selectedProject.gallery.length);
+  };
+
+  const handleGalleryTouchEnd = (x: number) => {
+    if (touchStartX === null) return;
+
+    const difference = touchStartX - x;
+    setTouchStartX(null);
+
+    if (Math.abs(difference) < 40) return;
+    if (difference > 0) {
+      showNextImage();
+    } else {
+      showPreviousImage();
+    }
+  };
 
   return (
     <>
@@ -155,7 +191,7 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                 <button
                   type="button"
-                  onClick={() => setSelectedProject(null)}
+                  onClick={closeProject}
                   className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-slate-100"
                   aria-label="Close project details"
                 >
@@ -223,13 +259,22 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                       Gallery images
                     </h3>
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      {selectedProject.gallery.map((image) => (
-                        <img
+                      {selectedProject.gallery.map((image, index) => (
+                        <button
                           key={image}
-                          src={image}
-                          alt={`${selectedProject.title} gallery`}
-                          className="aspect-[4/3] rounded-2xl object-cover"
-                        />
+                          type="button"
+                          onClick={() => setGalleryIndex(index)}
+                          className="group relative overflow-hidden rounded-2xl bg-slate-100 text-left"
+                        >
+                          <img
+                            src={image}
+                            alt={`${selectedProject.title} gallery ${index + 1}`}
+                            className="aspect-[4/3] w-full object-cover transition duration-500 md:group-hover:scale-105"
+                          />
+                          <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/70 to-transparent p-3 text-xs font-semibold text-white opacity-100 md:opacity-0 md:transition md:group-hover:opacity-100">
+                            View image
+                          </span>
+                        </button>
                       ))}
                     </div>
                   </section>
@@ -300,6 +345,87 @@ export function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                   </div>
                 </aside>
               </div>
+          </div>
+        </div>
+      )}
+
+      {selectedProject && galleryIndex !== null && (
+        <div className="fixed inset-0 z-[90] flex flex-col bg-slate-950/95 px-3 py-4 text-white sm:px-6">
+          <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-100">
+                Project gallery
+              </p>
+              <h3 className="mt-1 text-lg font-extrabold leading-tight sm:text-2xl">
+                {selectedProject.title}
+              </h3>
+            </div>
+            <button
+              type="button"
+              onClick={() => setGalleryIndex(null)}
+              aria-label="Close gallery image"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-slate-950 transition hover:bg-slate-100"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+
+          <div
+            className="mx-auto mt-4 flex min-h-0 w-full max-w-6xl flex-1 items-center justify-center"
+            onTouchStart={(event) => setTouchStartX(event.touches[0].clientX)}
+            onTouchEnd={(event) =>
+              handleGalleryTouchEnd(event.changedTouches[0].clientX)
+            }
+          >
+            {selectedProject.gallery.length > 1 && (
+              <button
+                type="button"
+                onClick={showPreviousImage}
+                aria-label="Previous gallery image"
+                className="mr-2 hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/15 transition hover:bg-white/20 sm:flex"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+            )}
+
+            <img
+              src={selectedProject.gallery[galleryIndex]}
+              alt={`${selectedProject.title} gallery enlarged ${galleryIndex + 1}`}
+              className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
+            />
+
+            {selectedProject.gallery.length > 1 && (
+              <button
+                type="button"
+                onClick={showNextImage}
+                aria-label="Next gallery image"
+                className="ml-2 hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/15 transition hover:bg-white/20 sm:flex"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            )}
+          </div>
+
+          <div className="mx-auto mt-4 flex w-full max-w-6xl items-center justify-between gap-4 text-sm text-slate-300">
+            <button
+              type="button"
+              onClick={showPreviousImage}
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 font-semibold text-white ring-1 ring-white/15 sm:hidden"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Previous
+            </button>
+            <p className="mx-auto font-semibold">
+              {galleryIndex + 1} / {selectedProject.gallery.length}
+            </p>
+            <button
+              type="button"
+              onClick={showNextImage}
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 font-semibold text-white ring-1 ring-white/15 sm:hidden"
+            >
+              Next
+              <ChevronRight className="h-4 w-4" />
+            </button>
           </div>
         </div>
       )}
